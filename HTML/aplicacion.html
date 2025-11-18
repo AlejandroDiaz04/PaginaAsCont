@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aplicación Móvil - AsContSystem" />
+    <meta
+      name="keywords"
+      content="aplicación móvil, gestión empresarial, Paraguay"
+    />
+    <title>Aplicación Móvil - AsContSystem</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/animaciones.css" />
+    <link rel="stylesheet" href="CSS-HTML/animaciones-html.css" />
+    <link rel="stylesheet" href="CSS-HTML/aplicacion.css" />
+    <link rel="stylesheet" href="/CSS/contacto.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="pageLoader" class="page-loader">
+      <div class="curtain top"></div>
+      <div class="curtain bottom"></div>
+
+      <div class="loader-content">
+        <div class="loader-line-container">
+          <div class="loader-line" id="loaderLine"></div>
+        </div>
+        <div class="loader-percentage-text">
+          Cargando <span id="loaderPercentage">0</span>%
+        </div>
+      </div>
+    </div>
+    <header class="header-container">
+      <nav
+        class="navegacion"
+        role="navigation"
+        aria-label="Navegación principal"
+      >
+        <div class="logo-container">
+          <img
+            src="/IMG/NewLogoEmpresaBlanco.png"
+            alt="AsContSystem Logo"
+            class="logo"
+          />
+        </div>
+
+        <button
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
+
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/index.html#inicio" role="menuitem">Inicio</a>
+          </li>
+          <li role="none">
+            <a href="/index.html#productos" role="menuitem">Productos</a>
+          </li>
+          <li role="none">
+            <a href="/index.html#servicios" role="menuitem">Servicios</a>
+          </li>
+          <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
+          <li role="none">
+            <a href="/index.html#clientes" role="menuitem">Clientes</a>
+          </li>
+          <li role="none">
+            <a href="/HTML/empresa.html" role="menuitem">Empresa</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section
+        class="seccion-hero-app"
+        aria-label="Sección principal de aplicación"
+      >
+        <div class="hero-content">
+          <div class="hero-texto">
+            <p class="hero-subtitulo">Tecnología Móvil</p>
+            <h1 class="hero-titulo">
+              Gestiona tu Negocio<br />
+              <span class="destacado">En tu Bolsillo</span>
+            </h1>
+            <p class="hero-descripcion">
+              Acceso total a tu empresa desde cualquier lugar y en cualquier
+              momento. La potencia de AsContSystem, siempre contigo.
+            </p>
+            <div class="hero-botones">
+              <a href="#caracteristicas" class="btn btn-primary"
+                >DESCUBRE CARACTERÍSTICAS</a
+              >
+              <a href="#contacto" class="btn btn-secondary">SOLICITAR DEMO</a>
+            </div>
+          </div>
+
+          <div class="hero-imagen">
+            <div
+              class="telefono-mockup"
+              role="img"
+              aria-label="Mockup del teléfono con aplicación"
+            >
+              <img
+                src="/IMG/loginApp.jpg"
+                alt="Pantalla de login de AsContSystem"
+                class="telefono-pantalla"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN CARACTERÍSTICAS -->
+      <section
+        id="caracteristicas"
+        class="seccion-caracteristicas-app"
+        aria-label="Características de la aplicación"
+      >
+        <div class="caracteristicas-header">
+          <p class="caracteristicas-subtitulo">Funcionalidades</p>
+          <h2 class="caracteristicas-titulo">
+            ¿Qué puedes hacer con nuestra<br />
+            <span class="destacado">Aplicación Móvil?</span>
+          </h2>
+        </div>
+
+        <div class="caracteristicas-grid">
+          <!-- CARACTERÍSTICA 1 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-smartphone-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">Interfaz Intuitiva</h3>
+            <p class="caracteristica-descripcion-card">
+              Diseñada para ser simple y fácil de usar. No necesitas
+              capacitación exhaustiva.
+            </p>
+          </div>
+
+          <!-- CARACTERÍSTICA 2 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-database-2-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">
+              Sincronización en Tiempo Real
+            </h3>
+            <p class="caracteristica-descripcion-card">
+              Todos tus datos sincronizados instantáneamente en la nube.
+            </p>
+          </div>
+
+          <!-- CARACTERÍSTICA 3 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-shield-check-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">Seguridad Avanzada</h3>
+            <p class="caracteristica-descripcion-card">
+              Encriptación de extremo a extremo para proteger tu información.
+            </p>
+          </div>
+
+          <!-- CARACTERÍSTICA 4 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-bar-chart-2-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">Reportes y Análisis</h3>
+            <p class="caracteristica-descripcion-card">
+              Genera reportes completos directamente desde tu teléfono.
+            </p>
+          </div>
+
+          <!-- CARACTERÍSTICA 5 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-team-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">Gestión de Equipo</h3>
+            <p class="caracteristica-descripcion-card">
+              Colabora con tu equipo en tiempo real desde cualquier dispositivo.
+            </p>
+          </div>
+
+          <!-- CARACTERÍSTICA 6 -->
+          <div class="caracteristica-card">
+            <div class="caracteristica-icono">
+              <i class="ri-wifi-off-line"></i>
+            </div>
+            <h3 class="caracteristica-titulo-card">Modo Offline</h3>
+            <p class="caracteristica-descripcion-card">
+              Trabaja sin conexión y sincroniza cuando vuelvas a estar online.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN PANTALLAS (GALERÍA) -->
+   <section
+  class="seccion-pantallas"
+  aria-label="Galería de pantallas de la aplicación"
+>
+  <div class="pantallas-header">
+    <h2 class="pantallas-titulo">
+      Conoce las <span class="destacado">Pantallas</span>
+    </h2>
+    <p class="pantallas-descripcion">
+      Una interfaz moderna y eficiente diseñada para optimizar tu
+      productividad. Haz clic en cualquier imagen para ver más detalles.
+    </p>
+  </div>
+
+  <div class="pantallas-container">
+    <!-- PANTALLA 1: INICIO -->
+    <div class="pantalla-item">
+      <div
+        class="pantalla-imagen"
+        role="button"
+        tabindex="0"
+        aria-label="Abrir galería - Pantalla de inicio"
+        onclick="abrirModalPantalla(1)"
+        onkeypress="if(event.key==='Enter') abrirModalPantalla(1)"
+      >
+        <img src="/IMG/inicioImg.jpg" alt="Pantalla de inicio" />
+      </div>
+      <div class="pantalla-info">
+        <h3>Pantalla de Inicio</h3>
+        <p>
+          Acceso rápido a todas las funciones principales del sistema.
+        </p>
+      </div>
+    </div>
+
+    <!-- PANTALLA 2: FACTURACIÓN -->
+    <div class="pantalla-item">
+      <div
+        class="pantalla-imagen"
+        role="button"
+        tabindex="0"
+        aria-label="Abrir galería - Facturación"
+        onclick="abrirModalPantalla(2)"
+        onkeypress="if(event.key==='Enter') abrirModalPantalla(2)"
+      >
+        <img src="/IMG/facturacionImg.jpeg" alt="Facturación" />
+      </div>
+      <div class="pantalla-info">
+        <h3>Facturación</h3>
+        <p>Crea y gestiona facturas de manera rápida y segura.</p>
+      </div>
+    </div>
+
+    <!-- PANTALLA 3: INVENTARIO -->
+    <div class="pantalla-item">
+      <div
+        class="pantalla-imagen"
+        role="button"
+        tabindex="0"
+        aria-label="Abrir galería - Gestión de inventario"
+        onclick="abrirModalPantalla(3)"
+        onkeypress="if(event.key==='Enter') abrirModalPantalla(3)"
+      >
+        <img src="/IMG/preciosImg.jpg" alt="Gestión de inventario" />
+      </div>
+      <div class="pantalla-info">
+        <h3>Precios y productos</h3>
+        <p>Agrega o actualiza precios de tus productos desde cualquier lugar.</p>
+      </div>
+    </div>
+
+    <!-- PANTALLA 4: CLIENTES -->
+    <div class="pantalla-item">
+      <div
+        class="pantalla-imagen"
+        role="button"
+        tabindex="0"
+        aria-label="Abrir galería - Reportes"
+        onclick="abrirModalPantalla(4)"
+        onkeypress="if(event.key==='Enter') abrirModalPantalla(4)"
+      >
+        <img src="/IMG/clienteImg.jpg" alt="Clientes" />
+      </div>
+      <div class="pantalla-info">
+        <h3>Clientes</h3>
+        <p>Gestiona la informacion de tu clientes de manera eficiente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL PARA PANTALLAS -->
+<div id="modalPantallas" class="modal-pantallas" aria-hidden="true">
+  <button
+    class="modal-pantallas-close"
+    onclick="cerrarModalPantalla()"
+    aria-label="Cerrar modal"
+  >
+    <i class="ri-close-line"></i>
+  </button>
+
+  <div class="modal-pantallas-content">
+    <!-- MODAL 1: PANTALLA DE INICIO -->
+    <div id="modal-1" class="modal-pantalla-section" style="display: none">
+      <div class="modal-pantalla-header">
+        <h2>Pantalla de Inicio</h2>
+        <p>
+          Acceso rápido a todas las funciones principales del sistema.
+        </p>
+      </div>
+
+      <div class="galeria-imagenes">
+        <div class="galeria-item">
+          <img src="/IMG/menuModulos.png" alt="Pantalla de inicio - Vista 1" />
+          <p>Vista principal con menú de opciones</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/menuIformes.png" alt="Pantalla de inicio - Vista 2" />
+          <p>Widgets de información rápida</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/menuConfiguraciones.png" alt="Pantalla de inicio - Vista 3" />
+          <p>Acceso a reportes y análisis</p>
+        </div>
+      </div>
+
+      <div class="modal-pantalla-descripcion">
+        <h3>Características de la Pantalla de Inicio:</h3>
+        <ul>
+          <li>✓ Navegación intuitiva y clara</li>
+          <li>✓ Widgets personalizables</li>
+          <li>✓ Acceso rápido a funciones</li>
+          <li>✓ Información en tiempo real</li>
+          <li>✓ Diseño adaptativo para móviles</li>
+        </ul>
+      </div>
+
+      <div class="modal-navegacion">
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(2)"
+          aria-label="Ir a siguiente pantalla"
+        >
+          Siguiente <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 2: FACTURACIÓN -->
+    <div id="modal-2" class="modal-pantalla-section" style="display: none">
+      <div class="modal-pantalla-header">
+        <h2>Facturación</h2>
+        <p>Crea y gestiona facturas de manera rápida y segura.</p>
+      </div>
+
+      <div class="galeria-imagenes">
+        <div class="galeria-item">
+          <img src="/IMG/facturacionCliente (2).png" alt="Facturación - Vista 1" />
+          <p>Formulario de creación de facturas</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/facturacionProductos.png" alt="Facturación - Vista 2" />
+          <p>Listado de facturas emitidas</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/facturacionImg.png" alt="Facturación - Vista 3" />
+          <p>Detalles y estado de facturas</p>
+        </div>
+      </div>
+
+      <div class="modal-pantalla-descripcion">
+        <h3>Características de Facturación:</h3>
+        <ul>
+          <li>✓ Creación rápida de facturas</li>
+          <li>✓ Facturación electrónica integrada</li>
+          <li>✓ Historial de documentos</li>
+          <li>✓ Exportación a PDF</li>
+          <li>✓ Control de impuestos automático</li>
+        </ul>
+      </div>
+
+      <div class="modal-navegacion">
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(1)"
+          aria-label="Ir a pantalla anterior"
+        >
+          <i class="ri-arrow-left-line"></i> Anterior
+        </button>
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(3)"
+          aria-label="Ir a siguiente pantalla"
+        >
+          Siguiente <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 3: INVENTARIO -->
+    <div id="modal-3" class="modal-pantalla-section" style="display: none">
+      <div class="modal-pantalla-header">
+        <h2>Precios y productos</h2>
+        <p>Controla y gestiona los precios y productos de tu inventario de manera eficiente.</p>
+      </div>
+
+      <div class="galeria-imagenes">
+        <div class="galeria-item">
+          <img src="/IMG/menusApp.jpg" alt="Inventario - Vista 1" />
+          <p>Listado de productos en stock</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/menusApp.jpg" alt="Inventario - Vista 2" />
+          <p>Búsqueda y filtros avanzados</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/menusApp.jpg" alt="Inventario - Vista 3" />
+          <p>Registro de movimientos de stock</p>
+        </div>
+      </div>
+
+      <div class="modal-pantalla-descripcion">
+        <h3>Características de Precios y Productos:</h3>
+        <ul>
+          <li>✓ Control tus precios en tiempo real</li>
+          <li>✓ Agregar y editar productos fácilmente</li>
+          <li>✓ Mantiene tu lista de precio siempre actualizada</li>
+          <li>✓ Código de barras integrado</li>
+        </ul>
+      </div>
+
+      <div class="modal-navegacion">
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(2)"
+          aria-label="Ir a pantalla anterior"
+        >
+          <i class="ri-arrow-left-line"></i> Anterior
+        </button>
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(4)"
+          aria-label="Ir a siguiente pantalla"
+        >
+          Siguiente <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 4: REPORTES -->
+    <div id="modal-4" class="modal-pantalla-section" style="display: none">
+      <div class="modal-pantalla-header">
+        <h2>Clientes</h2>
+        <p>Gestiona la informacion de tu clientes de manera eficiente.</p>
+      </div>
+
+      <div class="galeria-imagenes">
+        <div class="galeria-item">
+          <img src="/IMG/clienteFormulario.png" alt="Reportes - Vista 1" />
+          <p>Dashboard con gráficos</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/clienteDetalle.png" alt="Reportes - Vista 2" />
+          <p>Análisis de ventas</p>
+        </div>
+        <div class="galeria-item">
+          <img src="/IMG/clienteEditar.png" alt="Reportes - Vista 3" />
+          <p>Exportación de reportes</p>
+        </div>
+      </div>
+
+      <div class="modal-pantalla-descripcion">
+        <h3>Características de Reportes:</h3>
+        <ul>
+          <li>✓ Gráficos interactivos</li>
+          <li>✓ Análisis por período</li>
+          <li>✓ Comparativas de datos</li>
+          <li>✓ Exportación a Excel/PDF</li>
+          <li>✓ Personalización de reportes</li>
+        </ul>
+      </div>
+
+      <div class="modal-navegacion">
+        <button
+          class="btn-nav"
+          onclick="cambiarModalPantalla(3)"
+          aria-label="Ir a pantalla anterior"
+        >
+          <i class="ri-arrow-left-line"></i> Anterior
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+      </section>
+
+      <!-- SECCIÓN CASOS DE USO -->
+      <section
+        class="seccion-casos-uso"
+        aria-label="Casos de uso de la aplicación"
+      >
+        <div class="casos-header">
+          <h2 class="casos-titulo">Casos de Uso</h2>
+          <p class="casos-descripcion">
+            Diferentes industrias confían en AsContSystem
+          </p>
+        </div>
+
+        <div class="casos-grid">
+          <!-- CASO 1 -->
+          <div class="caso-item">
+            <div class="caso-icono">
+              <i class="ri-store-2-line"></i>
+            </div>
+            <h3>Comercios</h3>
+            <p>Control de ventas y inventario en punto de venta.</p>
+          </div>
+
+          <!-- CASO 2 -->
+          <div class="caso-item">
+            <div class="caso-icono">
+              <i class="ri-building-2-line"></i>
+            </div>
+            <h3>Empresas</h3>
+            <p>Gestión integral de operaciones empresariales.</p>
+          </div>
+
+          <!-- CASO 3 -->
+          <div class="caso-item">
+            <div class="caso-icono">
+              <i class="ri-calculator-line"></i>
+            </div>
+            <h3>Contadores</h3>
+            <p>Herramientas contables y financieras avanzadas.</p>
+          </div>
+
+          <!-- CASO 4 -->
+          <div class="caso-item">
+            <div class="caso-icono">
+              <i class="ri-bar-chart-box-line"></i>
+            </div>
+            <h3>Industrias</h3>
+            <p>Control de producción y gestión de recursos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN CTA (LLAMADA A ACCIÓN) -->
+      <section class="seccion-cta-app" aria-label="Llamada a acción">
+        <div class="cta-content">
+          <h2 class="cta-titulo">¿Listo para transformar<br />tu negocio?</h2>
+          <p class="cta-descripcion">
+            Solicita una demostración gratuita hoy mismo y descubre cómo
+            AsContSystem puede ayudarte.
+          </p>
+          <a href="demo.html" class="btn btn-primary btn-grande">
+            SOLICITAR DEMOSTRACIÓN GRATIS
+          </a>
+        </div>
+      </section>
+
+      <!-- SECCIÓN CONTACTO -->
+      <section
+      id="contacto"
+      class="contacto-seccion"
+      aria-label="Sección de contacto"
+    >
+      <div class="contacto-grid">
+        <!-- IZQUIERDA: Info empresa -->
+        <div class="contacto-info">
+          <img
+            src="/IMG/LogoEmpresaNegro.png"
+            alt="Logo AS Informática"
+            width="200"
+          />
+          <hr />
+          <p>
+            AS Informática es una empresa especializada en el desarrollo e
+            implementación de sistemas para contadores, empresas e industrias.
+            Nos destacamos por la confiabilidad de nuestras soluciones, el uso
+            de tecnología de vanguardia y el compromiso profesional de nuestro
+            equipo.
+          </p>
+          <a
+            class="contacto-mail"
+            href="javascript:void(0)"
+            onclick="mostrarEmail()"
+            id="email-link"
+          >
+            Contactanos por email
+          </a>
+        </div>
+        <!-- CENTRO: Mapa -->
+        <div class="contacto-mapa">
+          <div class="mapa-wrapper">
+            <iframe
+              class="google-maps"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1071.1599283160044!2d-57.51873389208036!3d-25.440330396421768!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945c53a59c036bb3%3A0x2ce9944328b0571b!2sQuinta%20C%C3%A1mpora%20Gonz%C3%A1lez!5e0!3m2!1ses-419!2spy!4v1762167452862!5m2!1ses-419!2spy"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación"
+            ></iframe>
+          </div>
+          <div class="direccion-mapa">
+            <i class="ri-map-pin-2-fill icono-ubicacion"></i>
+            Avda. Héroes de Ytororó 756 esq./San Pedro Ypané - Paraguay
+          </div>
+        </div>
+        <!-- DERECHA: Teléfonos, redes sociales, datos empresa -->
+        <div class="contacto-lateral">
+          <div class="contacto-telefono-box">
+            <i class="ri-phone-fill icono-telefono"></i>
+            <div class="telefonos-lista">
+              <div>Teléfono : <span>(021) 969-302</span></div>
+              <div>Celular : <span>(0971) 242-742</span></div>
+            </div>
+          </div>
+        <div class="redes-sociales">
+            <a
+              href="https://youtube.com/@ascontsystems?si=nXO6IOh6MDk1Bmy2"
+              target="_blank"
+              class="icono"
+              aria-label="YouTube"
+              ><i class="bi bi-youtube"></i
+            ></a>
+            <a
+              href="https://wa.me/+595971242742"
+              target="_blank"
+              class="icono"
+              aria-label="WhatsApp"
+              ><i class="bi bi-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/ascontsystem?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              class="icono"
+              aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" target="_blank" class="icono" aria-label="Facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+          </div>
+          <div class="compañia">
+            <p>Compañía</p>
+            <a href="/HTML/empresa.html#nosotros">¿Quienes somos?</a>
+            <a href="/HTML/empresa.html#trabajaConNosotros"
+              >Trabaja con nosotros</a
+            >
+            <a href="/HTML/empresa.html#misionYvision">Visión</a>
+            <a href="/HTML/empresa.html#misionYvision">Misión</a>
+          </div>
+        </div>
+      </div>
+      <footer class="footer-derechos">
+        © 2025 AsCont Systems. Todos los derechos reservados. <br />
+        Diseñado por AlejandroDiaz
+      </footer>
+    </section>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="JS-HTML/aplicacion.js"></script>
+    <script src="/JS/scrips.js"></script>
+  </body>
+</html>

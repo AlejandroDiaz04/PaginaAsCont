@@ -1,0 +1,225 @@
+/* ===================== ANIMACIONES SUTILES PARA EMPRESA ===================== */
+
+/* Estados iniciales */
+.sobre-nosotros,
+.mision-vision-contenedor,
+.valores,
+.datos-empresa,
+.trabaja-con-nosotros,
+.contacto-seccion {
+  opacity: 0;
+}
+
+/* Animaciones secciones principales */
+.sobre-nosotros.animate-on-scroll,
+.mision-vision-contenedor.animate-on-scroll,
+.valores.animate-on-scroll,
+.datos-empresa.animate-on-scroll,
+.trabaja-con-nosotros.animate-on-scroll,
+.contacto-seccion.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
+}
+
+/* ===================== ANIMACIÓN HERO - CONTENIDO DESDE ARRIBA ===================== */
+
+.sobre-nosotros h1 {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.sobre-nosotros.animate-on-scroll h1 {
+  animation: slideInDown 0.9s ease-out forwards;
+}
+
+.sobre-nosotros p {
+  opacity: 1;
+  transform: translateY(20px);
+}
+
+.sobre-nosotros.animate-on-scroll p {
+  animation: slideInUp 0.9s ease-out 0.2s forwards;
+}
+
+/* ===================== MISIÓN Y VISIÓN ===================== */
+
+.Mision,
+.Vision {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.mision-vision-contenedor.animate-on-scroll .Mision,
+.mision-vision-contenedor.animate-on-scroll .Vision {
+  animation: bounceInSubtle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.Mision {
+  animation-delay: 0.15s;
+}
+
+.Vision {
+  animation-delay: 0.3s;
+}
+
+/* ===================== TARJETAS DE VALORES CON SALTITO SUTIL ===================== */
+
+.confianza,
+.responsabilidad,
+.especializacion {
+  opacity: 1;
+  transform: translateY(30px);
+}
+
+.valores.animate-on-scroll .confianza,
+.valores.animate-on-scroll .responsabilidad,
+.valores.animate-on-scroll .especializacion {
+  animation: bounceInSubtle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Delays escalonados para valores */
+.confianza {
+  animation-delay: 0.15s;
+}
+
+.responsabilidad {
+  animation-delay: 0.3s;
+}
+
+.especializacion {
+  animation-delay: 0.45s;
+}
+
+/* ===================== DATOS EMPRESA - GRID CON DELAYS ===================== */
+
+.tiempo-empresa,
+.clientes,
+.modulos,
+.desarrollo-implementacion,
+.horas,
+.certificacion {
+  opacity: 1;
+  transform: translateY(30px);
+}
+
+.datos-empresa.animate-on-scroll .tiempo-empresa,
+.datos-empresa.animate-on-scroll .clientes,
+.datos-empresa.animate-on-scroll .modulos,
+.datos-empresa.animate-on-scroll .desarrollo-implementacion,
+.datos-empresa.animate-on-scroll .horas,
+.datos-empresa.animate-on-scroll .certificacion {
+  animation: bounceInSubtle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Delays escalonados para datos empresa */
+.tiempo-empresa {
+  animation-delay: 0.1s;
+}
+
+.clientes {
+  animation-delay: 0.2s;
+}
+
+.modulos {
+  animation-delay: 0.3s;
+}
+
+.desarrollo-implementacion {
+  animation-delay: 0.4s;
+}
+
+.horas {
+  animation-delay: 0.5s;
+}
+
+.certificacion {
+  animation-delay: 0.6s;
+}
+
+/* ===================== TRABAJA CON NOSOTROS ===================== */
+
+.presentacion,
+.formulario {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.trabaja-con-nosotros.animate-on-scroll .presentacion {
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+.trabaja-con-nosotros.animate-on-scroll .formulario {
+  animation: slideInRight 0.9s ease-out 0.2s forwards;
+}
+
+/* ===================== KEYFRAMES SUTILES ===================== */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SALTITO SUTIL - El efecto clave */
+@keyframes bounceInSubtle {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== ACCESIBILIDAD ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,197 @@
+.contacto-seccion {
+  border-top: 1px solid black;
+  border-left: #000 1px solid;
+  border-right: #000 1px solid;
+  width: 96%;
+  background: white;
+  margin-top: 200px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  min-height: 50vh;
+  box-sizing: border-box;
+}
+
+.contacto-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 30px 40px 30px;
+  flex-wrap: wrap;
+}
+.contacto-info,
+.contacto-mapa,
+.contacto-lateral {
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contacto-info {
+  align-items: flex-start;
+}
+.contacto-info hr {
+  border: 0;
+  height: 2px;
+  background: #000;
+  width: 100%;
+  margin: 10px 0 18px 0;
+}
+.contacto-info p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #000;
+  line-height: 1.6;
+}
+.contacto-mail {
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  font-size: 18px;
+  margin-top: 18px;
+  display: block;
+  transition: color 0.2s;
+}
+.contacto-mail:hover {
+  color: #0a84ff;
+}
+
+.mapa-wrapper {
+  width: 350px;
+  max-width: 95vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+.direccion-mapa {
+  color: #666;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 8px;
+}
+.icono-ubicacion {
+  font-size: 20px;
+  color: #0a84ff;
+  margin-right: 4px;
+}
+
+.contacto-lateral {
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.contacto-telefono-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.icono-telefono {
+  color: #000;
+  font-size: 36px;
+  display: block;
+  margin-bottom: 6px;
+}
+.telefonos-lista {
+  color: #000;
+  font-family: "Montserrat", Arial, sans-serif;
+  text-align: left;
+  font-size: 1.06em;
+  line-height: 1.5;
+}
+.telefonos-lista span {
+  font-weight: 600;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  border-bottom: #000 1px solid;
+  padding-bottom: 10px;
+}
+.redes-sociales .icono {
+  font-size: 25px;
+  color: #8a8a8a;
+  transition: color 0.3s;
+}
+.redes-sociales .icono:hover {
+  color: #0a84ff;
+}
+.compañia {
+  margin-top: 14px;
+}
+.compañia p {
+  font-size: 20px;
+  border-bottom: #000 1px solid;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  color: #000;
+}
+.compañia a {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+.compañia a:hover {
+  color: #0a84ff;
+  text-decoration: underline;
+}
+
+.footer-derechos {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin: 16px 0 8px 0;
+}
+
+/* RESPONSIVO MOBILE */
+@media (max-width: 950px) {
+  .contacto-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+    padding: 40px 4vw 30px 4vw;
+  }
+  .contacto-info,
+  .contacto-mapa,
+  .contacto-lateral {
+    align-items: center !important;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .contacto-info,
+  .contacto-lateral {
+    text-align: center;
+  }
+  .contacto-info hr {
+    margin: 20px auto 14px auto;
+  }
+  .contacto-info p {
+    text-align: center;
+  }
+  .direccion-mapa {
+    font-size: 16px;
+  }
+  /* .mapa-wrapper {
+    width: 97vw;
+    max-width: 97vw;
+    aspect-ratio: 1 / 1;
+  } */
+}

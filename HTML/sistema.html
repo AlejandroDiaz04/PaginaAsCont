@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/animaciones.css" />
+    <link rel="stylesheet" href="CSS-HTML/sistema.css" />
+    <link rel="stylesheet" href="/CSS/contacto.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Empresa - AsContSystem</title>
+  </head>
+  <body>
+    <div id="pageLoader" class="page-loader">
+      <div class="curtain top"></div>
+      <div class="curtain bottom"></div>
+
+      <div class="loader-content">
+        <div class="loader-line-container">
+          <div class="loader-line" id="loaderLine"></div>
+        </div>
+        <div class="loader-percentage-text">
+          Cargando <span id="loaderPercentage">0</span>%
+        </div>
+      </div>
+    </div>
+    <header class="header-container">
+      <nav
+        class="navegacion"
+        role="navigation"
+        aria-label="Navegación principal"
+      >
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/IMG/NewLogoEmpresaBlanco.png"
+            alt="AsContSystem Logo"
+            class="logo"
+          />
+        </div>
+        <button
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
+
+        <!-- Menú de Navegación -->
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/index.html#inicio" role="menuitem">Inicio</a>
+          </li>
+          <li role="none">
+            <a href="/index.html#productos" role="menuitem">Productos</a>
+          </li>
+          <li role="none">
+            <a href="/index.html#servicios" role="menuitem">Servicios</a>
+          </li>
+          <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
+          <li role="none">
+            <a href="/index.html#clientes" role="menuitem">Clientes</a>
+          </li>
+          <li role="none">
+            <a href="/HTML/empresa.html" role="menuitem">Empresa</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="inicio">
+        <h1>AsCont System</h1>
+        <p>
+          Solución integral de contabilidad y gestión empresarial diseñada para
+          optimizar tus procesos administrativos y financieros
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="btn btn-primary"
+            onclick="solicitarDemo('AsCont Sistema')"
+          >
+            Solicitar Demo
+          </button>
+          <button
+            class="btn btn-secondary"
+            onclick="document.querySelector('.presentacion-sistema').scrollIntoView({behavior: 'smooth'})"
+          >
+            Ver Más
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== PRESENTACIÓN SISTEMA ===== -->
+      <section class="presentacion-sistema" id="presentacion">
+        <div class="container">
+          <div class="sistema-container">
+            <div class="sistema-mockup">
+              <img src="/IMG/escritorio.png" alt="AsCont Sistema" />
+            </div>
+            <div class="sistema-info">
+              <h2>Gestión Empresarial Integral</h2>
+              <div class="sistema-linea"></div>
+              <p class="sistema-subtitle">Contabilidad + Gestión + Reportes</p>
+
+              <p class="sistema-descripcion">
+                AsCont Sistema es una plataforma empresarial completa que
+                integra contabilidad, gestión financiera y generación de
+                reportes avanzados. Diseñada para empresas que buscan optimizar
+                sus procesos administrativos con una solución confiable y
+                profesional.
+              </p>
+
+              <ul class="sistema-caracteristicas">
+                <li>Multi-empresa y multi-sucursal</li>
+                <li>Reportes contables avanzados</li>
+                <li>Datos en tiempo real</li>
+                <li>Interface intuitiva y moderna</li>
+                <li>Integración con sistemas externos</li>
+                <li>Soporte técnico especializado</li>
+              </ul>
+
+              <div class="sistema-botones">
+                <button class="btn btn-primary">Ver Más Características</button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="solicitarDemo('AsCont Sistema')"
+                >
+                  Solicitar Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CARACTERÍSTICAS PRINCIPALES ===== -->
+      <section class="caracteristicas-section" id="caracteristicas">
+        <div class="container">
+          <h2 class="section-title">Características Principales</h2>
+          <div class="section-linea"></div>
+
+          <div class="caracteristicas-grid">
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Reportes Avanzados</h3>
+              <p>
+                Genera reportes contables detallados y personalizables en
+                múltiples formatos para tomar decisiones informadas.
+              </p>
+            </div>
+
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Seguridad Total</h3>
+              <p>
+                Protección máxima de tus datos con encriptación de nivel
+                empresarial y respaldos automáticos.
+              </p>
+            </div>
+
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Rendimiento Rápido</h3>
+              <p>
+                Procesamiento ultra rápido de datos incluso con grandes
+                volúmenes de información.
+              </p>
+            </div>
+
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Acceso Remoto</h3>
+              <p>
+                Accede desde cualquier lugar con conexión a internet a través de
+                nuestra plataforma web.
+              </p>
+            </div>
+
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Personalizable</h3>
+              <p>
+                Adapta el sistema completamente a las necesidades específicas de
+                tu empresa.
+              </p>
+            </div>
+
+            <div class="caracteristica-card">
+              <span class="caracteristica-icon"></span>
+              <h3>Soporte 24/7</h3>
+              <p>
+                Equipo de soporte técnico disponible para resolver cualquier
+                duda o inconveniente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MÓDULOS ESPECIALIZADOS ===== -->
+      <section class="modulos-section" id="modulos">
+        <div class="container">
+          <h2 class="section-title">Módulos Especializados</h2>
+          <div class="section-linea"></div>
+
+          <div class="modulos-grid">
+            <div class="modulo-card">
+              <h4>Contabilidad Impositiva</h4>
+              <p>
+                Contabilidad impositiva y de gestión para empresas con normativa
+                completa.
+              </p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Control de Stock</h4>
+              <p>
+                Inventario, facturación y puntos de venta integrados en un único
+                sistema.
+              </p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Tesorería</h4>
+              <p>Gestión de caja, banco, conciliación y cartera de cheques.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Cuentas por Cobrar/Pagar</h4>
+              <p>Estado de cuentas de clientes y proveedores en tiempo real.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Activo Fijo</h4>
+              <p>
+                Presupuestos, ejecución presupuestaria y reajustes automáticos.
+              </p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Recursos Humanos</h4>
+              <p>Gestión de RRHH y control de reloj biométrico integrado.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Básculas y Peaje</h4>
+              <p>Sistemas especializados para básculas y control de peaje.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Cooperativas</h4>
+              <p>
+                Sistemas para cooperativas: préstamos, ahorros y cuentas
+                corrientes.
+              </p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Shopping y Expensas</h4>
+              <p>Facturación para locatorios y gestión de expensas comunes.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Flotas de Camiones</h4>
+              <p>Control de flotas, fletes y liquidación de servicios.</p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Silos y Acopios</h4>
+              <p>
+                Sistema para silos, acopios y liquidación de
+                clientes/proveedores.
+              </p>
+            </div>
+
+            <div class="modulo-card">
+              <h4>Sincronización</h4>
+              <p>
+                Sincronización automática entre todos los módulos del sistema.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FUNCIONALIDADES CLAVE ===== -->
+      <section class="funcionalidades-section" id="funcionalidades">
+        <div class="container">
+          <h2 class="section-title">Funcionalidades Clave</h2>
+          <div class="section-linea"></div>
+
+          <!-- FUNCIONALIDAD 1 CON VIDEO -->
+          <div class="funcionalidad-item">
+            <div class="funcionalidad-media">
+              <div class="video-container">
+                <iframe
+                  src=""
+                  title="Contabilidad Integrada - Demo"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div class="funcionalidad-info">
+              <h3>Contabilidad Integrada</h3>
+              <div class="sistema-linea"></div>
+              <p>
+                Sistema completo de contabilidad que te permite gestionar todos
+                tus registros contables de manera eficiente y profesional.
+              </p>
+              <ul class="funcionalidad-lista">
+                <li>Registro de transacciones automático</li>
+                <li>Balance general dinámico</li>
+                <li>Estados financieros en tiempo real</li>
+                <li>Auditoría y trazabilidad completa</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FUNCIONALIDAD 2 CON VIDEO -->
+          <div class="funcionalidad-item">
+            <div class="funcionalidad-media">
+              <div class="video-container">
+                <iframe
+                  src=""
+                  title="Control de Inventario - Demo"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div class="funcionalidad-info">
+              <h3>Control de Inventario y Facturación</h3>
+              <div class="sistema-linea"></div>
+              <p>
+                Gestión completa de inventario con facturación integrada y
+                puntos de venta configurables.
+              </p>
+              <ul class="funcionalidad-lista">
+                <li>Control de stock en tiempo real</li>
+                <li>Facturación automática y electrónica</li>
+                <li>Múltiples puntos de venta</li>
+                <li>Gestión de códigos de barras</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FUNCIONALIDAD 3 CON VIDEO -->
+          <div class="funcionalidad-item">
+            <div class="funcionalidad-media">
+              <div class="video-container">
+                <iframe
+                  src=""
+                  title="Tesorería - Demo"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div class="funcionalidad-info">
+              <h3>Tesorería y Gestión Financiera</h3>
+              <div class="sistema-linea"></div>
+              <p>
+                Administra tu tesorería con herramientas avanzadas de caja,
+                banco y conciliación.
+              </p>
+              <ul class="funcionalidad-lista">
+                <li>Gestión de caja y caja chica</li>
+                <li>Conciliación bancaria automática</li>
+                <li>Cartera de cheques integrada</li>
+                <li>Proyección de flujo de caja</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FUNCIONALIDAD 4 CON VIDEO -->
+          <div class="funcionalidad-item">
+            <div class="funcionalidad-media">
+              <div class="video-container">
+                <iframe
+                  src=""
+                  title="Recursos Humanos - Demo"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div class="funcionalidad-info">
+              <h3>Recursos Humanos</h3>
+              <div class="sistema-linea"></div>
+              <p>
+                Módulo completo de RRHH con control de asistencia biométrica
+                integrada.
+              </p>
+              <ul class="funcionalidad-lista">
+                <li>Gestión de empleados y nómina</li>
+                <li>Control de asistencia biométrica</li>
+                <li>Cálculo de impuestos y aportes</li>
+                <li>Reportes de recursos humanos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA SECTION ===== -->
+      <section class="cta-section" id="contacto">
+        <div class="container">
+          <h2>¿Listo para transformar tu gestión empresarial?</h2>
+          <p>
+            Solicita una demostración gratuita y conoce cómo AsCont Sistema
+            puede optimizar tus procesos
+          </p>
+          <button
+            class="btn btn-primary"
+            onclick="solicitarDemo('AsCont Sistema')"
+          >
+            Solicitar Demo Ahora
+          </button>
+        </div>
+      </section>
+      <section
+        id="contacto"
+        class="contacto-seccion"
+        aria-label="Sección de contacto"
+      >
+        <div class="contacto-grid">
+          <!-- IZQUIERDA: Info empresa -->
+          <div class="contacto-info">
+            <img
+              src="/IMG/LogoEmpresaNegro.png"
+              alt="Logo AS Informática"
+              width="200"
+            />
+            <hr />
+            <p>
+              AS Informática es una empresa especializada en el desarrollo e
+              implementación de sistemas para contadores, empresas e industrias.
+              Nos destacamos por la confiabilidad de nuestras soluciones, el uso
+              de tecnología de vanguardia y el compromiso profesional de nuestro
+              equipo.
+            </p>
+            <a
+              class="contacto-mail"
+              href="javascript:void(0)"
+              onclick="mostrarEmail()"
+              id="email-link"
+            >
+              Contactanos por email
+            </a>
+          </div>
+          <!-- CENTRO: Mapa -->
+          <div class="contacto-mapa">
+            <div class="mapa-wrapper">
+              <iframe
+                class="google-maps"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1071.1599283160044!2d-57.51873389208036!3d-25.440330396421768!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945c53a59c036bb3%3A0x2ce9944328b0571b!2sQuinta%20C%C3%A1mpora%20Gonz%C3%A1lez!5e0!3m2!1ses-419!2spy!4v1762167452862!5m2!1ses-419!2spy"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación"
+              ></iframe>
+            </div>
+            <div class="direccion-mapa">
+              <i class="ri-map-pin-2-fill icono-ubicacion"></i>
+              Avda. Héroes de Ytororó 756 esq./San Pedro Ypané - Paraguay
+            </div>
+          </div>
+          <!-- DERECHA: Teléfonos, redes sociales, datos empresa -->
+          <div class="contacto-lateral">
+            <div class="contacto-telefono-box">
+              <i class="ri-phone-fill icono-telefono"></i>
+              <div class="telefonos-lista">
+                <div>Teléfono : <span>(021) 969-302</span></div>
+                <div>Celular : <span>(0971) 242-742</span></div>
+              </div>
+            </div>
+            <div class="redes-sociales">
+              <a
+                href="https://youtube.com/@ascontsystems?si=nXO6IOh6MDk1Bmy2"
+                target="_blank"
+                class="icono"
+                aria-label="YouTube"
+                ><i class="bi bi-youtube"></i
+              ></a>
+              <a
+                href="https://wa.me/+595971242742"
+                target="_blank"
+                class="icono"
+                aria-label="WhatsApp"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/ascontsystem?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                class="icono"
+                aria-label="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" target="_blank" class="icono" aria-label="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+            </div>
+            <div class="compañia">
+              <p>Compañía</p>
+              <a href="/HTML/empresa.html#nosotros">¿Quienes somos?</a>
+              <a href="/HTML/empresa.html#trabajaConNosotros"
+                >Trabaja con nosotros</a
+              >
+              <a href="/HTML/empresa.html#misionYvision">Visión</a>
+              <a href="/HTML/empresa.html#misionYvision">Misión</a>
+            </div>
+          </div>
+        </div>
+        <footer class="footer-derechos">
+          © 2025 AsCont Systems. Todos los derechos reservados. <br />
+          Diseñado por AlejandroDiaz
+        </footer>
+      </section>
+    </main>
+    <script>
+      function solicitarDemo(producto) {
+        //colocar ubicacion de demo.html para abrir el formulario de solicitud de demo
+        window.location.href = "demo.html";
+        // alert(
+        //   `Solicitud de demo para: ${producto}\n\nNos contactaremos pronto.`
+        // );
+      }
+    </script>
+    <script src="/JS/components.js"></script>
+    <script src="/JS/scrips.js"></script>
+  </body>
+</html>

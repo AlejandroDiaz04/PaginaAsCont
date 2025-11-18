@@ -1,0 +1,232 @@
+/* Estados iniciales */
+.seccion-hero-app,
+.seccion-caracteristicas-app,
+.seccion-pantallas,
+.seccion-casos-uso,
+.seccion-cta-app {
+  opacity: 0;
+}
+
+/* Animaciones secciones principales */
+.seccion-hero-app.animate-on-scroll,
+.seccion-caracteristicas-app.animate-on-scroll,
+.seccion-pantallas.animate-on-scroll,
+.seccion-casos-uso.animate-on-scroll,
+.seccion-cta-app.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
+}
+
+/* ===================== ANIMACIÓN HERO - CELULAR DESDE LA DERECHA ===================== */
+
+.hero-texto {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.seccion-hero-app.animate-on-scroll .hero-texto {
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* CELULAR VIENE DE LA DERECHA */
+.hero-imagen {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.seccion-hero-app.animate-on-scroll .hero-imagen {
+  animation: slideInRight 0.9s ease-out forwards;
+}
+
+/* ===================== TARJETAS CON SALTITO SUTIL ===================== */
+
+.caracteristica-card,
+.pantalla-item,
+.caso-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.seccion-caracteristicas-app.animate-on-scroll .caracteristica-card,
+.seccion-pantallas.animate-on-scroll .pantalla-item,
+.seccion-casos-uso.animate-on-scroll .caso-item {
+  animation: bounceInSubtle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Delays escalonados */
+.caracteristica-card:nth-child(1),
+.pantalla-item:nth-child(1),
+.caso-item:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.caracteristica-card:nth-child(2),
+.pantalla-item:nth-child(2),
+.caso-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.caracteristica-card:nth-child(3),
+.pantalla-item:nth-child(3),
+.caso-item:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.caracteristica-card:nth-child(4),
+.pantalla-item:nth-child(4),
+.caso-item:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.caracteristica-card:nth-child(5) {
+  animation-delay: 0.75s;
+}
+
+.caracteristica-card:nth-child(6) {
+  animation-delay: 0.9s;
+}
+
+/* ===================== HEADERS DE SECCIONES ===================== */
+
+.caracteristicas-header,
+.pantallas-header,
+.casos-header,
+.cta-content {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.seccion-caracteristicas-app.animate-on-scroll .caracteristicas-header,
+.seccion-pantallas.animate-on-scroll .pantallas-header,
+.seccion-casos-uso.animate-on-scroll .casos-header,
+.seccion-cta-app.animate-on-scroll .cta-content {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+/* ===================== KEYFRAMES SUTILES ===================== */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SALTITO SUTIL - El efecto clave */
+@keyframes bounceInSubtle {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== ANIMACIONES EXISTENTES ===================== */
+
+.seccion-productos.animate-on-scroll,
+.seccion-servicios.animate-on-scroll,
+.contacto-seccion.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.texto-medio.animate-on-scroll {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.frase_itermedio.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.modulo-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.seccion-servicios.animate-on-scroll .modulo-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.modulo-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.modulo-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.modulo-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.modulo-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.modulo-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.modulo-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* ===================== ESTADOS ===================== */
+
+.seccion-productos,
+.seccion-servicios,
+.contacto-seccion,
+.texto-medio,
+.frase_itermedio {
+  opacity: 0;
+}
+
+.seccion-productos.animate-on-scroll,
+.seccion-servicios.animate-on-scroll,
+.contacto-seccion.animate-on-scroll,
+.texto-medio.animate-on-scroll,
+.frase_itermedio.animate-on-scroll {
+  opacity: 1;
+}
+
+/* ===================== ACCESIBILIDAD ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
