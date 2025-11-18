@@ -96,6 +96,12 @@ button:hover {
   background: #0056b3;
 }
 
+.g-recaptcha {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 480px) {
   body {
     background-size: cover;
