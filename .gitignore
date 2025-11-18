@@ -1,0 +1,46 @@
+# Backend PHP - Archivos y directorios a ignorar
+
+# Archivos de configuración con credenciales sensibles
+# NOTA: config.php SÍ debe incluirse en el repo con valores placeholder
+# pero se puede ignorar localmente si tiene credenciales reales
+# config.php
+
+# Directorio de uploads (CVs y archivos subidos por usuarios)
+uploads/*
+!uploads/.gitkeep
+
+# Directorio de logs
+logs/*
+!logs/.gitkeep
+
+# Archivos temporales de prueba
+test_*.php
+phpinfo.php
+
+# Dependencias de Composer (si se usa PHPMailer)
+vendor/
+composer.lock
+
+# Archivos de backup de base de datos
+*.sql.backup
+backup_*.sql
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales de PHP
+*.php~
+*.swp
+*.swo
+
+# Archivos de sesión de PHP (si se almacenan localmente)
+/tmp/
+sessions/
