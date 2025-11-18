@@ -29,11 +29,11 @@
     <div class="particles"></div>
 
     <main>
-      <form>
+      <form action="/php/submit_demo.php" method="POST">
         <h1>Deja tu solicitud y elige a qué sistema deseas acceder</h1>
 
         <label for="select">Sistema para demo:</label>
-        <select name="select" id="select">
+        <select name="select" id="select" required>
           <option value="SistemaAsCont">Sistema AsCont</option>
           <option value="AplicacionAsCont">Aplicación AsCont</option>
           <option value="OtraOpcion">Sistema y Aplicacion AsCont</option>
@@ -54,6 +54,7 @@
         <input
           type="email"
           id="email"
+          name="email"
           required
           placeholder="correo@dominio.com"
         />
@@ -67,9 +68,12 @@
           pattern="[0-9+ ]+"
         />
 
+        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY_HERE"></div>
+
         <button type="submit">Enviar Solicitud</button>
       </form>
     </main>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="/JS/scrips.js"></script>
   </body>
 </html>

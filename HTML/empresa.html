@@ -231,7 +231,7 @@
           </div>
           <section id="trabajaConNosotros">
             <div class="formulario">
-              <form action="#" method="post" enctype="multipart/form-data">
+              <form action="/php/submit_empresa.php" method="POST" enctype="multipart/form-data">
                 <h1>TRABAJA CON NOSOTROS</h1>
 
                 <input
@@ -239,6 +239,7 @@
                   name="nombre"
                   placeholder="Nombre completo"
                   required
+                  minlength="3"
                 />
                 <input
                   type="email"
@@ -255,14 +256,17 @@
 
                 <label class="adjunto-label">
                   <span> Adjuntar CV</span>
-                  <input type="file" name="cv" required />
+                  <input type="file" name="cv" accept=".pdf,.doc,.docx" required />
                 </label>
 
                 <textarea
                   name="mensaje"
                   placeholder="Cuéntanos por qué te gustaría unirte a nuestro equipo..."
                   required
+                  minlength="10"
                 ></textarea>
+
+                <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY_HERE"></div>
 
                 <button type="submit">Enviar solicitud</button>
               </form>
@@ -371,6 +375,7 @@
     </main>
 
     <!-- Scripts -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="JS-HTML/empresa.js"></script>
     <script src="/JS/components.js"></script>
     <script src="/JS/scrips.js"></script>
