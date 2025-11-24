@@ -12,62 +12,70 @@ if (clientesCarrusel) {
     "IMG-CLIENTE/acostruir.jpg",
   ];
 
-  let currentIndex = 0;
-  const visibleCount = 5;
-  let carruselInterval;
+  let isPaused = false;
+  let animationId = null;
+  let translateValue = 0;
+  const speed = 0.5; // Pixels por frame (ajusta para velocidad)
 
   function renderClientes() {
     clientesCarrusel.innerHTML = "";
 
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % clientesData.length;
-      const img = document.createElement("img");
-      img.src = clientesData[index];
-      img.alt = `Logo Cliente ${index + 1}`;
-      img.width = 200;
-      img.height = 100;
-      img.loading = "lazy";
-      clientesCarrusel.appendChild(img);
+    // Duplicar imágenes 3 veces para efecto infinito suave
+    for (let repeat = 0; repeat < 3; repeat++) {
+      clientesData.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Logo Cliente ${index + 1}`;
+        img.width = 200;
+        img.height = 100;
+        img.loading = "lazy";
+        clientesCarrusel.appendChild(img);
+      });
     }
   }
 
-  function rotarCarrusel() {
-    clientesCarrusel.style.transform = "translateX(-250px)";
+  function animateCarrusel() {
+    if (!isPaused) {
+      translateValue += speed;
 
-    setTimeout(() => {
-      clientesCarrusel.style.transition = "none";
-      currentIndex = (currentIndex + 1) % clientesData.length;
-      renderClientes();
-      clientesCarrusel.style.transform = "translateX(0)";
+      // Calcular el ancho de un set completo de imágenes (230px = 200px width + 30px gap)
+      const imageWidth = 230;
+      const totalWidth = clientesData.length * imageWidth;
 
-      setTimeout(() => {
-        clientesCarrusel.style.transition = "transform 0.8s ease-in-out";
-      }, 50);
-    }, 800);
+      // Resetear cuando se completa un ciclo completo
+      if (translateValue >= totalWidth) {
+        translateValue = 0;
+      }
+
+      clientesCarrusel.style.transform = `translateX(-${translateValue}px)`;
+    }
+
+    animationId = requestAnimationFrame(animateCarrusel);
+  }
+
+  function pausarCarrusel() {
+    isPaused = true;
+  }
+
+  function reanudarCarrusel() {
+    isPaused = false;
   }
 
   function iniciarCarrusel() {
     renderClientes();
-    carruselInterval = setInterval(rotarCarrusel, 3000);
-  }
-
-  function pausarCarrusel() {
-    clearInterval(carruselInterval);
-  }
-
-  function reanudarCarrusel() {
-    carruselInterval = setInterval(rotarCarrusel, 2000);
+    animateCarrusel();
   }
 
   const carruselObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (!carruselInterval) {
+          if (!animationId) {
             iniciarCarrusel();
           }
+          isPaused = false;
         } else {
-          pausarCarrusel();
+          isPaused = true;
         }
       });
     },

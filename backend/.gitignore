@@ -1,0 +1,33 @@
+# Archivos de configuración sensibles
+.env
+config.php.local
+
+# Archivos subidos por usuarios
+uploads/cv/*
+!uploads/cv/.gitkeep
+
+# Logs
+*.log
+error_log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Backup
+*.bak
+*.backup

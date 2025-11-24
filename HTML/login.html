@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS-HTML/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="interactive-bg"></div>
+
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form id="signUpForm">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="https://www.facebook.com/share/1DKytsx1P1/" class="social"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/ascontsystem?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              class="social"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://youtube.com/@ascontsystems?si=nXO6IOh6MDk1Bmy2"
+              class="social"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+          <span>Usa nombre y apellido para iniciar sesion</span>
+          <input type="text" id="signUpName" placeholder="Name" required />
+          <input type="email" id="signUpEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="signUpPassword"
+            placeholder="Password"
+            required
+            minlength="6"
+          />
+          <div
+            id="signUpMessage"
+            style="
+              margin: 10px 0;
+              padding: 8px;
+              border-radius: 5px;
+              display: none;
+              font-size: 14px;
+            "
+          ></div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form id="signInForm">
+          <h1>Sign in</h1>
+          <div class="social-container">
+            <a href="https://www.facebook.com/share/1DKytsx1P1/" class="social"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/ascontsystem?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              class="social"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://youtube.com/@ascontsystems?si=nXO6IOh6MDk1Bmy2"
+              class="social"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+          <span>Siguenos en nuestra redes</span>
+          <input
+            type="text"
+            id="signInEmail"
+            placeholder="Email o Usuario"
+            required
+          />
+          <input
+            type="password"
+            id="signInPassword"
+            placeholder="Password"
+            required
+          />
+          <a href="#">Olvidaste tu contraseña?</a>
+          <div
+            id="signInMessage"
+            style="
+              margin: 10px 0;
+              padding: 8px;
+              border-radius: 5px;
+              display: none;
+              font-size: 14px;
+            "
+          ></div>
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome to AsCont!</h1>
+            <p>Tu empresa de desarrollo de software de confianza.</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>
+              ¿Aún no tienes una cuenta? Solicita la tuya si eres cliente y ten
+              acceso a contenido exclusivo.
+            </p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        2025 AsCont Software Solutions. All rights reserved. Desings with
+        AlejandroDiaz
+      </p>
+
+      <!-- Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a
+          target="_blank"
+          href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >here</a
+        >.
+      </p> -->
+    </footer>
+    <script src="JS-HTML/login.js"></script>
+  </body>
+</html>

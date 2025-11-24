@@ -13,6 +13,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -81,7 +85,22 @@
           <li role="none">
             <a href="/HTML/empresa.html" role="menuitem">Empresa</a>
           </li>
+          <li role="none" class="nav-login-item">
+            <a href="/HTML/login.html" role="menuitem" class="nav-login-link">
+              <i class="ri-user-line"></i>
+              <span>Iniciar Sesión</span>
+            </a>
+          </li>
         </ul>
+        <div class="login">
+          <a
+            href="/HTML/login.html"
+            class="btn-login"
+            aria-label="Iniciar sesión"
+          >
+            <i class="ri-user-line"></i>
+          </a>
+        </div>
       </nav>
     </header>
     <div class="inicio-container">
@@ -231,38 +250,58 @@
           </div>
           <section id="trabajaConNosotros">
             <div class="formulario">
-              <form action="#" method="post" enctype="multipart/form-data">
+              <form id="trabajaForm" enctype="multipart/form-data">
                 <h1>TRABAJA CON NOSOTROS</h1>
 
                 <input
                   type="text"
                   name="nombre"
+                  id="nombre"
                   placeholder="Nombre completo"
                   required
                 />
                 <input
                   type="email"
                   name="correo"
+                  id="correo"
                   placeholder="Correo electrónico"
                   required
                 />
                 <input
                   type="tel"
                   name="telefono"
+                  id="telefono"
                   placeholder="Número de teléfono"
                   required
                 />
 
                 <label class="adjunto-label">
                   <span> Adjuntar CV</span>
-                  <input type="file" name="cv" required />
+                  <input
+                    type="file"
+                    name="cv"
+                    id="cv"
+                    accept=".pdf,.doc,.docx"
+                    required
+                  />
                 </label>
 
                 <textarea
                   name="mensaje"
+                  id="mensaje"
                   placeholder="Cuéntanos por qué te gustaría unirte a nuestro equipo..."
                   required
                 ></textarea>
+
+                <div
+                  id="trabajaMessage"
+                  style="
+                    margin: 15px 0;
+                    padding: 10px;
+                    border-radius: 5px;
+                    display: none;
+                  "
+                ></div>
 
                 <button type="submit">Enviar solicitud</button>
               </form>
@@ -348,7 +387,11 @@
                 aria-label="Instagram"
                 ><i class="bi bi-instagram"></i
               ></a>
-              <a href="#" target="_blank" class="icono" aria-label="Facebook"
+              <a
+                href="https://www.facebook.com/share/1DKytsx1P1/"
+                target="_blank"
+                class="icono"
+                aria-label="Facebook"
                 ><i class="bi bi-facebook"></i
               ></a>
             </div>
@@ -374,5 +417,66 @@
     <script src="JS-HTML/empresa.js"></script>
     <script src="/JS/components.js"></script>
     <script src="/JS/scrips.js"></script>
+    <script>
+      // Manejar envío del formulario Trabaja con Nosotros
+      document
+        .getElementById("trabajaForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData();
+          formData.append("nombre", document.getElementById("nombre").value);
+          formData.append("correo", document.getElementById("correo").value);
+          formData.append(
+            "telefono",
+            document.getElementById("telefono").value
+          );
+          formData.append("mensaje", document.getElementById("mensaje").value);
+          formData.append("cv", document.getElementById("cv").files[0]);
+
+          const messageContainer = document.getElementById("trabajaMessage");
+          const submitBtn = this.querySelector('button[type="submit"]');
+
+          try {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+
+            const response = await fetch(
+              "/backend/api/trabaja_con_nosotros.php",
+              {
+                method: "POST",
+                body: formData,
+              }
+            );
+
+            const data = await response.json();
+
+            messageContainer.style.display = "block";
+
+            if (data.success) {
+              messageContainer.style.background = "#d4edda";
+              messageContainer.style.color = "#155724";
+              messageContainer.style.border = "1px solid #c3e6cb";
+              messageContainer.textContent = data.message;
+              this.reset();
+            } else {
+              messageContainer.style.background = "#f8d7da";
+              messageContainer.style.color = "#721c24";
+              messageContainer.style.border = "1px solid #f5c6cb";
+              messageContainer.textContent = data.message;
+            }
+          } catch (error) {
+            messageContainer.style.display = "block";
+            messageContainer.style.background = "#f8d7da";
+            messageContainer.style.color = "#721c24";
+            messageContainer.style.border = "1px solid #f5c6cb";
+            messageContainer.textContent =
+              "Error al enviar el formulario. Por favor, intente nuevamente.";
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar solicitud";
+          }
+        });
+    </script>
   </body>
 </html>

@@ -809,3 +809,123 @@
     font-size: 24px;
   }
 }
+/* ===================== LIGHTBOX PARA IMÁGENES DEL MODAL ===================== */
+
+.lightbox-galeria {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.98);
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-galeria.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-galeria-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  color: white;
+  font-size: 2rem;
+}
+
+.lightbox-galeria-close:hover {
+  background: rgba(255, 0, 0, 0.8);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.lightbox-galeria-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  animation: zoomIn 0.3s ease;
+}
+
+.lightbox-galeria-info {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 30px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  font-family: "Montserrat", sans-serif;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modificar las imágenes de la galería para que sean clicables */
+.galeria-item {
+  position: relative;
+}
+
+.galeria-item img {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Overlay de zoom en hover */
+.galeria-item::after {
+  content: "🔍";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.galeria-item:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .lightbox-galeria-close {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .lightbox-galeria-info {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}

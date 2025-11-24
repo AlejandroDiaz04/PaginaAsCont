@@ -839,14 +839,27 @@ let progressInterval;
 let startTime;
 let isPaused = false;
 
+// ===================== FUNCIÓN AUXILIAR PARA RESETEAR LA BARRA DE PROGRESO =====================
+
+function resetProgressBar() {
+  const progressFill = document.querySelector(".progress-fill");
+  if (!progressFill) return;
+
+  // Reiniciar la animación
+  progressFill.style.animation = "none";
+  progressFill.offsetHeight; // Trigger reflow
+  progressFill.style.animation = `progressAnimation ${SLIDE_INTERVAL}ms linear forwards`;
+}
+
 // ===================== INICIALIZACIÓN =====================
 
 function inicializarProgressBar() {
   const slides = document.querySelectorAll(".slide");
   const markers = document.querySelectorAll(".progress-marker");
   const progressBar = document.querySelector(".slide-progress-bar");
+  const progressFill = document.querySelector(".progress-fill");
 
-  if (!progressBar) return;
+  if (!progressBar || !progressFill) return;
 
   // Event listeners para marcadores
   markers.forEach((marker, index) => {
@@ -866,6 +879,9 @@ function inicializarProgressBar() {
   progressBar.addEventListener("focusin", pauseSlideAnimation);
   progressBar.addEventListener("focusout", resumeSlideAnimation);
 
+  // ⭐ IMPORTANTE: Iniciar la animación de la barra inmediatamente
+  resetProgressBar();
+
   // Iniciar slider
   startAutoSlide();
 }
@@ -878,7 +894,6 @@ function goToSlide(index) {
 
   const slides = document.querySelectorAll(".slide");
   const markers = document.querySelectorAll(".progress-marker");
-  const progressFill = document.querySelector(".progress-fill");
 
   // Actualizar slides
   slides.forEach((slide) => slide.classList.remove("active"));
@@ -891,10 +906,8 @@ function goToSlide(index) {
 
   currentSlide = index;
 
-  // Reiniciar progreso
-  progressFill.style.animation = "none";
-  progressFill.offsetHeight; // Trigger reflow
-  progressFill.style.animation = `progressAnimation ${SLIDE_INTERVAL}ms linear forwards`;
+  // ⭐ Resetear la barra de progreso
+  resetProgressBar();
 
   // Reiniciar contador
   startAutoSlide();
@@ -915,6 +928,8 @@ function prevSlide() {
 // ===================== ANIMACIÓN AUTOMÁTICA =====================
 
 function startAutoSlide() {
+  clearInterval(autoSlideInterval);
+
   autoSlideInterval = setInterval(() => {
     if (!isPaused) {
       nextSlide();
@@ -927,13 +942,17 @@ function startAutoSlide() {
 function pauseSlideAnimation() {
   isPaused = true;
   const progressFill = document.querySelector(".progress-fill");
-  progressFill.classList.add("paused");
+  if (progressFill) {
+    progressFill.classList.add("paused");
+  }
 }
 
-function resumeSliAgilisadeAnimation() {
+function resumeSlideAnimation() {
   isPaused = false;
   const progressFill = document.querySelector(".progress-fill");
-  progressFill.classList.remove("paused");
+  if (progressFill) {
+    progressFill.classList.remove("paused");
+  }
 }
 
 // ===================== ACTUALIZAR BARRA DE PROGRESO (ARIA) =====================

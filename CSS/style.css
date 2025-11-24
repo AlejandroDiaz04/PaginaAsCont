@@ -76,7 +76,7 @@ body {
 }
 
 .nav-menu li a {
-  font-weight: 600;
+  font-weight: 300;
   font-size: large;
   position: relative;
   color: rgb(255, 255, 255);
@@ -118,6 +118,111 @@ body {
   color: #ff7a00;
 }
 
+/* ==================== BOTÓN LOGIN ==================== */
+.login {
+  flex: 0 0 auto;
+  z-index: 102;
+}
+
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(10, 132, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-login:hover::before {
+  width: 120%;
+  height: 120%;
+}
+
+.btn-login i {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.btn-login:hover {
+  background: rgba(10, 132, 255, 0.2);
+  border-color: #0a84ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(10, 132, 255, 0.4);
+}
+
+.btn-login:hover i {
+  transform: scale(1.1);
+}
+
+.navegacion.scrolled .btn-login {
+  background: rgba(255, 255, 255, 0.15);
+
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navegacion.scrolled .btn-login:hover {
+  background: #ff7a00;
+  border-color: #ff7a00;
+  box-shadow: 0 5px 15px rgba(255, 122, 0, 0.4);
+}
+
+.navegacion.scrolled .btn-login:hover::before {
+  background: rgba(255, 122, 0, 0.3);
+}
+
+/* Login en menú móvil */
+.nav-login-item {
+  display: none;
+}
+
+.nav-login-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 20px !important;
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-login-link i {
+  font-size: 1.3rem;
+}
+
+.nav-login-link:hover {
+  background: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  transform: translateX(0) !important;
+  padding-left: 20px !important;
+  box-shadow: 0 5px 15px rgba(255, 122, 0, 0.3);
+}
+
 /* ==================== BOTÓN HAMBURGUESA ==================== */
 .hamburger {
   display: none;
@@ -143,22 +248,23 @@ body {
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
+  position: relative;
 }
 
 /* Animación del hamburguesa - Primera línea */
 .hamburger.active .line1 {
-  transform: rotate(45deg) translate(10px, 10px);
+  transform: rotate(45deg) translate(9px, 9px);
 }
 
 /* Animación del hamburguesa - Segunda línea */
 .hamburger.active .line2 {
   opacity: 0;
-  transform: translateX(-10px);
+  transform: scale(0);
 }
 
 /* Animación del hamburguesa - Tercera línea */
 .hamburger.active .line3 {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg) translate(3.5px, -3.5px);
 }
 
 /* ==================== MAIN CONTENT ==================== */
@@ -243,6 +349,18 @@ main {
     outline: 3px solid #ffffff;
     outline-offset: 2px;
   }
+
+  /* Mostrar login en menú móvil */
+  .nav-login-item {
+    display: block;
+    border-bottom: none;
+    padding-top: 20px;
+  }
+
+  /* Ocultar login desktop en móvil */
+  .login {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -272,6 +390,7 @@ main {
   align-items: center;
   justify-content: start;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .slide {
@@ -493,16 +612,16 @@ main {
 }
 .slide-progress-bar {
   position: absolute;
-  bottom: clamp(1rem, 3vw, 2rem);
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 3px;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 10;
   overflow: hidden;
-
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
 .progress-fill {
@@ -512,6 +631,7 @@ main {
   border-radius: 8px;
   animation: progressAnimation linear forwards;
   box-shadow: 0 0 20px rgba(10, 132, 255, 0.6);
+  box-sizing: border-box;
 }
 
 /* ===================== MARCADORES DE SLIDE ===================== */
@@ -586,7 +706,10 @@ main {
 @media (max-width: 768px) {
   .slide-progress-bar {
     width: 100%;
+    left: 0;
+    right: 0;
     height: 3px;
+    bottom: 0;
   }
 
   .progress-marker {
@@ -599,9 +722,13 @@ main {
 
 @media (max-width: 480px) {
   .slide-progress-bar {
-    width: clamp(120px, 85vw, 300px);
+    width: 100vw;
+    left: 0;
+    right: 0;
     height: clamp(4px, 1vw, 6px);
-    bottom: clamp(0.5rem, 2vw, 1rem);
+    bottom: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .progress-marker {
@@ -1274,7 +1401,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* margin-top: 100px; */
+  margin-top: 10px;
   width: 100%;
   height: 150px;
   background: linear-gradient(90deg, #0a84ff 0%, #005db9 100%);
