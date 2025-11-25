@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contenido Exclusivo - AsContSystem</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="CSS-HTML/contenido_exclusivo.css" />
+    <link rel="stylesheet" href="/CSS/style.css" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="/HTML/CSS-HTML/contenido_exclusivo.css" />
   </head>
-  <body>
+
+  <body class="premium-page">
     <div id="pageLoader" class="page-loader">
       <div class="curtain top"></div>
       <div class="curtain bottom"></div>
+
       <div class="loader-content">
         <div class="loader-line-container">
           <div class="loader-line" id="loaderLine"></div>
@@ -28,13 +32,13 @@
         </div>
       </div>
     </div>
-
     <header class="header-container">
       <nav
         class="navegacion"
         role="navigation"
         aria-label="Navegación principal"
       >
+        <!-- Logo -->
         <div class="logo-container">
           <img
             src="/IMG/NewLogoEmpresaBlanco.png"
@@ -43,6 +47,7 @@
           />
         </div>
 
+        <!-- Botón Hamburguesa -->
         <button
           class="hamburger"
           id="hamburgerBtn"
@@ -54,6 +59,7 @@
           <span class="line line3"></span>
         </button>
 
+        <!-- Menú de Navegación -->
         <ul class="nav-menu" role="menubar">
           <li role="none">
             <a href="/index.html#inicio" role="menuitem">Inicio</a>
@@ -64,182 +70,131 @@
           <li role="none">
             <a href="/index.html#servicios" role="menuitem">Servicios</a>
           </li>
-          <li role="none">
-            <a href="/index.html#contacto" role="menuitem">Contacto</a>
-          </li>
+          <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
           <li role="none">
             <a href="/index.html#clientes" role="menuitem">Clientes</a>
           </li>
           <li role="none">
             <a href="/HTML/empresa.html" role="menuitem">Empresa</a>
           </li>
-          <li role="none" class="nav-user-item">
-            <span class="nav-user-name" id="userName"></span>
-            <a href="#" role="menuitem" class="nav-logout-link" id="logoutBtn">
-              <i class="ri-logout-box-line"></i>
-              <span>Cerrar Sesión</span>
+          <li role="none" class="nav-login-item">
+            <a href="/HTML/login.html" role="menuitem" class="nav-login-link">
+              <i class="ri-user-line"></i>
+              <span>Iniciar Sesión</span>
             </a>
+          </li>
+        </ul>
+        <div class="login">
+          <a
+            href="/HTML/login.html"
+            class="btn-login"
+            aria-label="Iniciar sesión"
+          >
+            <i class="ri-user-line"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <!-- NAVBAR LOCAL -->
+    <header class="navbar-local">
+      <nav class="navbar-local-contenedor">
+        <ul class="breadcrumb">
+          <li>
+            <a href="#" class="breadcrumb-link active" data-section="0"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a href="#" class="breadcrumb-link" data-section="1"
+              >Video Tutoriales</a
+            >
+          </li>
+          <li>
+            <a href="#" class="breadcrumb-link" data-section="2"
+              >Actualizaciones</a
+            >
           </li>
         </ul>
       </nav>
     </header>
 
-    <main class="main-content">
-      <section class="hero-section">
-        <div class="hero-content">
-          <h1>Bienvenido <span id="userNameHero"></span></h1>
-          <p>Contenido exclusivo para clientes de AsContSystem</p>
-        </div>
-      </section>
-
-      <section class="exclusive-content">
-        <div class="content-grid">
-          <!-- Card 1: Descargas -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-download-cloud-line"></i>
-            </div>
-            <h2>Descargas</h2>
+    <!-- CONTENIDO HORIZONTAL -->
+    <main class="premium-contenedor">
+      <div class="contenedor-horizontal">
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio-exclusivo" class="section inicio">
+          <div class="content">
+            <h1>Bienvenido al Contenido Exclusivo</h1>
             <p>
-              Accede a las últimas versiones de nuestros sistemas y
-              aplicaciones.
+              Accede a recursos avanzados, tutoriales y novedades del sistema
+              AsContSystem. Esta plataforma está diseñada exclusivamente para
+              nuestros clientes.
             </p>
-            <ul class="download-list">
-              <li>
-                <a href="#"
-                  ><i class="ri-file-download-line"></i> Sistema AsCont v2.5</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="ri-file-download-line"></i> Aplicación AsCont
-                  Mobile</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="ri-file-download-line"></i> Manuales de Usuario</a
-                >
-              </li>
-            </ul>
           </div>
+        </section>
 
-          <!-- Card 2: Documentación -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-book-open-line"></i>
+        <!-- SECCIÓN VIDEOS -->
+        <section id="videos-exclusivos" class="section videos">
+          <div class="content">
+            <h1>Tutoriales en Video</h1>
+            <p class="subtexto">Aprende a usar el sistema paso a paso.</p>
+
+            <div class="video-grid">
+              <div class="video-card">
+                <i class="ri-play-circle-fill icon"></i>
+                <h3>Introducción al Sistema</h3>
+                <p>Tutorial básico para nuevos usuarios.</p>
+              </div>
+
+              <div class="video-card">
+                <i class="ri-play-circle-fill icon"></i>
+                <h3>Facturación</h3>
+                <p>Cómo generar documentos de forma eficiente.</p>
+              </div>
+
+              <div class="video-card">
+                <i class="ri-play-circle-fill icon"></i>
+                <h3>Reportes</h3>
+                <p>Aprende a consultar y exportar reportes.</p>
+              </div>
             </div>
-            <h2>Documentación</h2>
-            <p>
-              Consulta guías y tutoriales para aprovechar al máximo nuestros
-              productos.
+          </div>
+        </section>
+
+        <!-- SECCIÓN ACTUALIZACIONES -->
+        <section id="actualizaciones-exclusivas" class="section updates">
+          <div class="content">
+            <h1>Novedades y Actualizaciones</h1>
+            <p class="subtexto">
+              Conoce las mejoras más recientes del sistema.
             </p>
-            <ul class="download-list">
-              <li>
-                <a href="#"
-                  ><i class="ri-article-line"></i> Guía de Inicio Rápido</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="ri-article-line"></i> Tutoriales en Video</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="ri-article-line"></i> Preguntas Frecuentes</a
-                >
-              </li>
-            </ul>
-          </div>
 
-          <!-- Card 3: Soporte -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-customer-service-2-line"></i>
-            </div>
-            <h2>Soporte Técnico</h2>
-            <p>Acceso prioritario a nuestro equipo de soporte técnico.</p>
-            <div class="support-info">
-              <p><i class="ri-phone-line"></i> (021) 969-302</p>
-              <p><i class="ri-whatsapp-line"></i> (0971) 242-742</p>
-              <p><i class="ri-mail-line"></i> soporte@ascontsystem.com</p>
-            </div>
-            <a href="#" class="btn-primary">Abrir Ticket de Soporte</a>
-          </div>
-
-          <!-- Card 4: Noticias -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-notification-line"></i>
-            </div>
-            <h2>Novedades</h2>
-            <p>
-              Mantente informado sobre actualizaciones y nuevas funcionalidades.
-            </p>
-            <div class="news-list">
-              <div class="news-item">
-                <span class="news-date">15 Nov 2025</span>
-                <p>Nueva actualización disponible: Sistema AsCont v2.5</p>
+            <div class="updates-timeline">
+              <div class="update-card">
+                <span class="date">Febrero 2025</span>
+                <h3>Mejoras de Rendimiento</h3>
+                <p>
+                  Optimización en carga de reportes y procesamiento de datos.
+                </p>
               </div>
-              <div class="news-item">
-                <span class="news-date">10 Nov 2025</span>
-                <p>Webinar: Optimización de procesos contables</p>
+
+              <div class="update-card">
+                <span class="date">Enero 2025</span>
+                <h3>Nueva Interfaz de Usuario</h3>
+                <p>Diseño más limpio, rápido y fácil de usar.</p>
+              </div>
+
+              <div class="update-card">
+                <span class="date">Diciembre 2024</span>
+                <h3>Módulo de Inventarios</h3>
+                <p>Nuevo módulo completo para control de stock.</p>
               </div>
             </div>
           </div>
-
-          <!-- Card 5: Capacitaciones -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-presentation-line"></i>
-            </div>
-            <h2>Capacitaciones</h2>
-            <p>Accede a cursos y webinars exclusivos para clientes.</p>
-            <ul class="download-list">
-              <li>
-                <a href="#"
-                  ><i class="ri-video-line"></i> Curso Avanzado de Sistema
-                  AsCont</a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="ri-video-line"></i> Webinars Mensuales</a>
-              </li>
-              <li>
-                <a href="#"><i class="ri-video-line"></i> Certificaciones</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Card 6: Estadísticas -->
-          <div class="content-card">
-            <div class="card-icon">
-              <i class="ri-bar-chart-box-line"></i>
-            </div>
-            <h2>Panel de Control</h2>
-            <p>Monitorea el estado de tus licencias y servicios.</p>
-            <div class="stats-info">
-              <div class="stat-item">
-                <span class="stat-label">Licencias Activas</span>
-                <span class="stat-value">5</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">Soporte hasta</span>
-                <span class="stat-value">Dic 2025</span>
-              </div>
-            </div>
-            <a href="#" class="btn-primary">Ver Detalles</a>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
-
-    <footer class="footer">
-      <p>&copy; 2025 AsContSystem. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="../JS/scrips.js"></script>
-    <script src="JS-HTML/contenido_exclusivo.js"></script>
+    <script src="/JS/scrips.js"></script>
+    <script src="/HTML/JS-HTML/contenido_exclusivo.js"></script>
   </body>
 </html>

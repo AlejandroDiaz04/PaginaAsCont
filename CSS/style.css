@@ -118,6 +118,66 @@ body {
   color: #ff7a00;
 }
 
+/* ==================== SELECT NAVBAR ==================== */
+.nav-select-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-select {
+  margin-top: -5px;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 15px 8px 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23242741' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+  position: relative;
+}
+
+.nav-select:hover {
+  background-color: rgba(10, 132, 255, 0.1);
+  color: #0a84ff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230a84ff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+.nav-select:focus {
+  background-color: rgba(10, 132, 255, 0.15);
+  color: #0a84ff;
+}
+
+.nav-select option {
+  background: #ffffff;
+  color: #242741;
+  padding: 10px;
+  font-size: 0.95rem;
+}
+
+.navegacion.scrolled .nav-select {
+  color: rgb(255, 251, 251);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fffbfb' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+.navegacion.scrolled .nav-select:hover {
+  background-color: rgba(255, 122, 0, 0.1);
+  color: #ff7a00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff7a00' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+.navegacion.scrolled .nav-select:focus {
+  color: #ff7a00;
+}
+
 /* ==================== BOTÓN LOGIN ==================== */
 .login {
   flex: 0 0 auto;
@@ -355,6 +415,30 @@ main {
     display: block;
     border-bottom: none;
     padding-top: 20px;
+  }
+
+  /* Select en móvil */
+  .nav-select-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+  }
+
+  .nav-select {
+    width: 100%;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 35px 12px 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  }
+
+  .nav-select:hover,
+  .nav-select:focus {
+    background-color: rgba(255, 122, 0, 0.1);
+    color: #ff7a00;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff7a00' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   }
 
   /* Ocultar login desktop en móvil */

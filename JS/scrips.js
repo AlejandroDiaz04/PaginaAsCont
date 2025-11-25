@@ -981,3 +981,25 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") prevSlide();
   if (e.key === "ArrowRight") nextSlide();
 });
+
+// ===================== SELECT NAVEGACIÓN A CONTENIDO EXCLUSIVO =====================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectElement = document.getElementById("contenidoExclusivoSelect");
+
+  if (selectElement) {
+    selectElement.addEventListener("change", function () {
+      const selectedValue = this.value;
+
+      if (selectedValue) {
+        // Navegar a la URL seleccionada
+        window.location.href = selectedValue;
+
+        // Resetear el select al placeholder
+        setTimeout(() => {
+          this.selectedIndex = 0;
+        }, 100);
+      }
+    });
+  }
+});
