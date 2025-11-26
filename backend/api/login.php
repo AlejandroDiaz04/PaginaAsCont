@@ -86,7 +86,7 @@ try {
             'nombre' => $user['nombre'],
             'email' => $user['email']
         ],
-        'redirect' => SITE_URL . '/HTML/contenido_exclusivo.html'
+        'redirect' => SITE_URL . '/index.html'
     ]);
     
 } catch (Exception $e) {

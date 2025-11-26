@@ -25,7 +25,7 @@ define('MAIL_ENCRYPTION', 'tls'); // 'tls' o 'ssl'
 define('MAIL_ADMIN', 'alejandrodiaz04zr@gmail.com'); // Correo donde recibirás todas las solicitudes
 
 // Configuración del sitio
-define('SITE_URL', 'http://localhost'); // URL base de tu sitio
+define('SITE_URL', 'http://localhost:8000'); // URL base de tu sitio
 define('SITE_NAME', 'AsContSystem');
 
 // Configuración de sesiones

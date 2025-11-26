@@ -1,0 +1,295 @@
+/* ===== ESTILOS PARA SECCIÓN INICIO EXCLUSIVO ===== */
+:root {
+  --bg-inicio: #dfe8e8;
+  --card-inicio: linear-gradient(120deg, #111, #222);
+  --muted-inicio: #6b6b6b;
+  --accent-inicio: #2b1b17;
+  --gold-inicio: #d99b3b;
+  --radius-inicio: 20px;
+}
+
+/* Contenedor específico para la sección de inicio */
+.section.inicio {
+  background: var(--bg-inicio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Wrapper principal */
+.inicio .wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: var(--card-inicio);
+  border-radius: 0;
+  padding: 60px 80px;
+  box-shadow: none;
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left column - Hero */
+.inicio .hero h1 {
+  font-size: 56px;
+  line-height: 0.98;
+  margin: 4px 0 12px;
+  font-weight: 800;
+  color: #111;
+}
+
+.inicio .hero p.lead {
+  color: var(--muted-inicio);
+  max-width: 420px;
+  margin: 0 0 20px;
+}
+
+.inicio .hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.inicio .hero-logo-section {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.inicio .hero-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold-inicio), #b66a2a);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 800;
+}
+
+.inicio .hero-nav {
+  font-size: 14px;
+  color: var(--muted-inicio);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.inicio .hero-nav-btn {
+  background: #1b0f0b;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Search bar */
+.inicio .search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f6f6f6;
+  border-radius: 999px;
+  padding: 10px 14px;
+  width: 320px;
+  margin-bottom: 28px;
+}
+
+.inicio .search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px;
+  width: 100%;
+  font-family: inherit;
+}
+
+.inicio .search .btn {
+  background: var(--accent-inicio);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Stats section */
+.inicio .stats {
+  display: flex;
+  gap: 36px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+.inicio .stat {
+  text-align: left;
+}
+
+.inicio .stat .num {
+  color: var(--gold-inicio);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.inicio .stat-label {
+  font-size: 13px;
+  color: var(--muted-inicio);
+}
+
+.inicio .avatars {
+  display: flex;
+  gap: -10px;
+  margin-top: 8px;
+  margin-left: auto;
+}
+
+.inicio .avatars img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(20, 20, 20, 0.08);
+}
+
+/* Right column - Cards */
+.inicio .cards {
+  display: grid;
+  grid-template-areas: "big big" "a b";
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.inicio .card-big {
+  grid-area: big;
+  height: 260px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=60");
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  position: relative;
+  padding: 18px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+
+.inicio .card-big h3 {
+  margin: 0;
+  font-size: 24px;
+  margin-left: 24px;
+}
+
+.inicio .round-action {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--card-inicio);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.inicio .card-small {
+  background: #0f0f0f10;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 150px;
+  position: relative;
+}
+
+.inicio .card-small .img {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.inicio .card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  color: #fff;
+}
+
+.inicio .pill {
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .inicio .wrapper {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .inicio .hero h1 {
+    font-size: 40px;
+  }
+
+  .inicio .cards {
+    grid-template-areas: "big" "a" "b";
+    grid-template-columns: 1fr;
+  }
+
+  .inicio .card-big {
+    height: 220px;
+  }
+
+  .inicio .hero-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section.inicio {
+    padding: 24px;
+  }
+
+  .inicio .wrapper {
+    padding: 18px;
+  }
+
+  .inicio .hero h1 {
+    font-size: 32px;
+  }
+
+  .inicio .search {
+    width: 100%;
+  }
+
+  .inicio .stats {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .inicio .avatars {
+    margin-left: 0;
+  }
+}
