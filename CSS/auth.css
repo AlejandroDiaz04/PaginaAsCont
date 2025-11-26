@@ -1,0 +1,16 @@
+/* Deshabilitar visualmente el select cuando está deshabilitado */
+.nav-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+}
+
+/* Animación suave al mostrar/ocultar */
+.nav-select-item {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-select-item[style*="display: none"] {
+  opacity: 0;
+  visibility: hidden;
+}

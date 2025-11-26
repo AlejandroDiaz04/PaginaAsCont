@@ -120,6 +120,12 @@ document
       messageContainer.style.display = "block";
 
       if (data.success) {
+        // Guardar sesión en localStorage
+        localStorage.setItem("usuarioLogueado", "true");
+        localStorage.setItem("authToken", data.token || "session_active");
+        localStorage.setItem("nombreUsuario", data.user?.nombre || "");
+        localStorage.setItem("userEmail", data.user?.email || "");
+
         messageContainer.style.background = "#d4edda";
         messageContainer.style.color = "#155724";
         messageContainer.style.border = "1px solid #c3e6cb";

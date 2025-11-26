@@ -120,7 +120,7 @@ body {
 
 /* ==================== SELECT NAVBAR ==================== */
 .nav-select-item {
-  display: flex;
+  display: none; /* Oculto por defecto */
   align-items: center;
 }
 
@@ -143,6 +143,13 @@ body {
   background-position: right 8px center;
   padding-right: 28px;
   position: relative;
+}
+
+.nav-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 
 .nav-select:hover {
