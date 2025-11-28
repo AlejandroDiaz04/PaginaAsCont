@@ -5,11 +5,16 @@
  */
 
 // Configuración de la base de datos PostgreSQL
+// define('DB_HOST', 'localhost');
+// define('DB_PORT', '5432');
+// define('DB_NAME', 'pagina_web');
+// define('DB_USER', 'postgres');
+// define('DB_PASS', 'assoftware');
 define('DB_HOST', 'localhost');
 define('DB_PORT', '5432');
-define('DB_NAME', 'pagina_web');
-define('DB_USER', 'postgres');
-define('DB_PASS', 'assoftware');
+define('DB_NAME', 'ascont_pagina_web');
+define('DB_USER', 'ascont');
+define('DB_PASS', 'AlexisZaracho341');
 
 // Configuración de correo electrónico
 // IMPORTANTE: Configura estos valores con tu información de correo
