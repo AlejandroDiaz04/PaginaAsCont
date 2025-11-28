@@ -2,6 +2,13 @@ const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
 
+// Detectar si estamos en local o en producción
+const API_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : ""; // En producción usa rutas relativas
+
 signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
@@ -40,16 +47,13 @@ document
       submitBtn.disabled = true;
       submitBtn.textContent = "Procesando...";
 
-      const response = await fetch(
-        "http://localhost:8000/backend/api/registro.php",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/backend/api/registro.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       console.log("Response status:", response.status); // Debug
       const data = await response.json();
@@ -102,16 +106,13 @@ document
       submitBtn.disabled = true;
       submitBtn.textContent = "Iniciando...";
 
-      const response = await fetch(
-        "http://localhost:8000/backend/api/login.php",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/backend/api/login.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       console.log("Login - Response status:", response.status); // Debug
       const data = await response.json();
@@ -131,9 +132,17 @@ document
         messageContainer.style.border = "1px solid #c3e6cb";
         messageContainer.textContent = data.message;
 
-        // Redirigir a la página de contenido exclusivo
+        // Verificar si hay una URL guardada para redirigir
+        const redirectUrl = localStorage.getItem("redirectAfterLogin");
+
+        // Redirigir a la página guardada o a la página por defecto
         setTimeout(() => {
-          window.location.href = data.redirect;
+          if (redirectUrl) {
+            localStorage.removeItem("redirectAfterLogin"); // Limpiar después de usar
+            window.location.href = redirectUrl;
+          } else {
+            window.location.href = data.redirect;
+          }
         }, 1000);
       } else {
         messageContainer.style.background = "#f8d7da";

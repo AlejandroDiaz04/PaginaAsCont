@@ -1,3 +1,10 @@
+// Detectar si estamos en local o en producción
+const API_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : ""; // En producción usa rutas relativas
+
 // Verificar si el usuario está logueado
 function verificarAutenticacion() {
   // Obtener el token o sesión del usuario (ajusta según tu backend)
@@ -78,7 +85,7 @@ function cerrarSesion() {
   localStorage.removeItem("userEmail");
 
   // Llamar al backend para cerrar sesión en el servidor
-  fetch("http://localhost:8000/backend/api/logout.php", {
+  fetch(`${API_BASE_URL}/backend/api/logout.php`, {
     method: "POST",
     credentials: "include",
   })

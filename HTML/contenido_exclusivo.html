@@ -156,14 +156,24 @@
 
               <!-- LADO DERECHO -->
               <div class="contenedor-derecho">
-                <!-- TARJETA PRINCIPAL -->
+                <!-- VIDEO DE PRESENTACIÓN -->
                 <div class="card-principal">
-                  <div>
-                    <h2>Sistema avanzado para tu negocio</h2>
+                  <div class="video-container-principal">
+                    <video
+                      controls
+                      controlsList="nodownload"
+                      disablePictureInPicture
+                      oncontextmenu="return false;"
+                    >
+                      <source src="/IMG/presentacion1.mp4" type="video/mp4" />
+                      Tu navegador no soporta el elemento de video.
+                    </video>
+                  </div>
+                  <div class="video-info-principal">
+                    <!-- <h2>Sistema avanzado para tu negocio</h2> -->
                     <p>
-                      Descubre todas las funcionalidades que hemos preparado
-                      para optimizar tu gestión empresarial con tecnología de
-                      vanguardia.
+                      Descubre el sistema AsContSystem y cómo puede transformar
+                      la gestión de tu empresa.
                     </p>
                   </div>
                 </div>
@@ -172,14 +182,19 @@
                 <div class="cards-bottom">
                   <div class="card-small">
                     <div>
-                      <h3>Módulos personalizados</h3>
+                      <h3>
+                        Módulos
+                        <span style="color: #ff7a00">personalizados</span>
+                      </h3>
                       <p>Adaptados a tus necesidades</p>
                     </div>
                   </div>
 
-                  <div class="card-small">
+                  <div class="card-small-2">
                     <div>
-                      <h3>Soporte exclusivo</h3>
+                      <h3>
+                        Soporte <span style="color: #ff7a00">exclusivo</span>
+                      </h3>
                       <p>Atención prioritaria 24/7</p>
                     </div>
                   </div>
@@ -197,21 +212,60 @@
 
             <div class="video-grid">
               <div class="video-card">
-                <i class="ri-play-circle-fill icon"></i>
-                <h3>Introducción al Sistema</h3>
-                <p>Tutorial básico para nuevos usuarios.</p>
+                <div class="video-container" oncontextmenu="return false;">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/videoseries?si=zK-ckLaxoeuS2uKm&amp;list=PLUouKNeLdNGfOuqlEUP9PNh04aaX114Lb"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="video-info">
+                  <h3>Contabilidad</h3>
+                  <p>Contabilidad integrada.</p>
+                </div>
               </div>
 
               <div class="video-card">
-                <i class="ri-play-circle-fill icon"></i>
-                <h3>Facturación</h3>
-                <p>Cómo generar documentos de forma eficiente.</p>
+                <div class="video-container" oncontextmenu="return false;">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/videoseries?si=oyn7KLw39io-JbOd&amp;list=PLUouKNeLdNGdTFwkYEyNTO96vyuzfbcdN"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="video-info">
+                  <h3>Transacciones</h3>
+                  <p>Control y gestión de transacciones financieras.</p>
+                </div>
               </div>
 
               <div class="video-card">
-                <i class="ri-play-circle-fill icon"></i>
-                <h3>Reportes</h3>
-                <p>Aprende a consultar y exportar reportes.</p>
+                <div class="video-container" oncontextmenu="return false;">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/videoseries?si=VnLj19eFHXovLeHj&amp;list=PLUouKNeLdNGezM6tzC3ulF4PYGB7msd6N"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="video-info">
+                  <h3>Configuraciones</h3>
+                  <p>Configuraciones del sistema.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -227,23 +281,23 @@
 
             <div class="updates-timeline">
               <div class="update-card">
-                <span class="date">Febrero 2025</span>
-                <h3>Mejoras de Rendimiento</h3>
+                <span class="date">Julio 2025</span>
+                <h3>SistemaAsCont</h3>
                 <p>
                   Optimización en carga de reportes y procesamiento de datos.
                 </p>
               </div>
 
               <div class="update-card">
-                <span class="date">Enero 2025</span>
-                <h3>Nueva Interfaz de Usuario</h3>
-                <p>Diseño más limpio, rápido y fácil de usar.</p>
+                <span class="date">Diciembre 2025</span>
+                <h3>Servidor</h3>
+                <p>Mejoras de rendimiento y estabilidad del servidor.</p>
               </div>
 
               <div class="update-card">
-                <span class="date">Diciembre 2024</span>
-                <h3>Módulo de Inventarios</h3>
-                <p>Nuevo módulo completo para control de stock.</p>
+                <span class="date">Diciembre 2025</span>
+                <h3>AplicacionAsCont</h3>
+                <p>Mejoras de sincronización y estabilidad en la aplicación.</p>
               </div>
             </div>
           </div>
@@ -256,6 +310,11 @@
         AlejandroDiaz
       </p>
     </footer>
+
+    <!-- Script de protección debe ir primero -->
+    <script src="/JS/auth.js"></script>
+    <script src="/JS/proteccion.js"></script>
+    <script src="/HTML/JS-HTML/video_protection.js"></script>
     <script src="/JS/scrips.js"></script>
     <script src="/HTML/JS-HTML/contenido_exclusivo.js"></script>
   </body>

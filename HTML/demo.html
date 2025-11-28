@@ -85,6 +85,13 @@
     <script src="/JS/scrips.js"></script>
     <script>
       // Manejar envío del formulario de demo
+      // Detectar si estamos en local o en producción
+      const API_BASE_URL =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"
+          ? "http://localhost:8000"
+          : ""; // En producción usa rutas relativas
+
       document
         .getElementById("demoForm")
         .addEventListener("submit", async function (e) {
@@ -104,13 +111,16 @@
             submitBtn.disabled = true;
             submitBtn.textContent = "Enviando...";
 
-            const response = await fetch("/backend/api/solicitud_demo.php", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            });
+            const response = await fetch(
+              `${API_BASE_URL}/backend/api/solicitud_demo.php`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+              }
+            );
 
             const data = await response.json();
 

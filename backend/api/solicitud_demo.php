@@ -4,11 +4,22 @@
  * Recibe datos del formulario y envía correo al administrador
  */
 
+// Mostrar errores para debugging (quitar en producción)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Cabeceras CORS
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
+
+// Manejar preflight OPTIONS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Solo permitir método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,8 +28,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-require_once '../config/config.php';
-require_once '../config/Mailer.php';
+try {
+    require_once '../config/config.php';
+    require_once '../config/Mailer.php';
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Error de configuración del servidor',
+        'error' => $e->getMessage()
+    ]);
+    exit;
+}
 
 try {
     // Obtener datos del formulario
@@ -71,10 +92,13 @@ try {
     ]);
     
 } catch (Exception $e) {
+    error_log("Error en solicitud_demo.php: " . $e->getMessage());
     http_response_code(400);
     echo json_encode([
         'success' => false,
-        'message' => $e->getMessage()
+        'message' => $e->getMessage(),
+        'file' => $e->getFile(),
+        'line' => $e->getLine()
     ]);
 }
 ?>

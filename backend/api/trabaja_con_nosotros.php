@@ -4,11 +4,22 @@
  * Recibe datos del formulario y envía correo al administrador con CV adjunto
  */
 
+// Mostrar errores para debugging (quitar en producción)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Cabeceras CORS
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
+
+// Manejar preflight OPTIONS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Solo permitir método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,8 +28,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-require_once '../config/config.php';
-require_once '../config/Mailer.php';
+try {
+    require_once '../config/config.php';
+    require_once '../config/Mailer.php';
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Error de configuración del servidor',
+        'error' => $e->getMessage()
+    ]);
+    exit;
+}
 
 try {
     // Validar campos requeridos
@@ -43,7 +64,7 @@ try {
     
     $cv = $_FILES['cv'];
     $allowed_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-    $max_size = 5 * 1024 * 1024; // 5MB
+    $max_size = 2 * 1024 * 1024; // 2MB
     
     // Validar tipo de archivo
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
@@ -56,7 +77,7 @@ try {
     
     // Validar tamaño
     if ($cv['size'] > $max_size) {
-        throw new Exception('El archivo es demasiado grande. Máximo 5MB');
+        throw new Exception('El archivo es demasiado grande. Máximo 2MB');
     }
     
     // Crear directorio para CVs si no existe
@@ -75,11 +96,11 @@ try {
         throw new Exception('Error al guardar el CV');
     }
     
-    // Preparar y enviar correo
+    // Preparar y enviar correo con CV adjunto
     $subject = 'Nueva Solicitud de Empleo - ' . $nombre;
     $body = Mailer::templateTrabajaConNosotros($nombre, $correo, $telefono, $mensaje, $filename);
     
-    $mail_sent = Mailer::send(MAIL_ADMIN, $subject, $body);
+    $mail_sent = Mailer::sendWithAttachment(MAIL_ADMIN, $subject, $body, $filepath, $cv['name']);
     if (!$mail_sent) {
         error_log("Advertencia: No se pudo enviar el correo de solicitud de empleo");
     }
@@ -91,10 +112,13 @@ try {
     ]);
     
 } catch (Exception $e) {
+    error_log("Error en trabaja_con_nosotros.php: " . $e->getMessage());
     http_response_code(400);
     echo json_encode([
         'success' => false,
-        'message' => $e->getMessage()
+        'message' => $e->getMessage(),
+        'file' => $e->getFile(),
+        'line' => $e->getLine()
     ]);
 }
 ?>

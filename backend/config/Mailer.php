@@ -69,6 +69,68 @@ class Mailer {
     }
     
     /**
+     * Envía un correo electrónico con archivo adjunto
+     * 
+     * @param string $to Destinatario
+     * @param string $subject Asunto
+     * @param string $message Mensaje en HTML
+     * @param string $attachmentPath Ruta completa del archivo a adjuntar
+     * @param string $attachmentName Nombre del archivo adjunto
+     * @param string $from Remitente (opcional)
+     * @return bool
+     */
+    public static function sendWithAttachment($to, $subject, $message, $attachmentPath, $attachmentName, $from = null) {
+        if ($from === null) {
+            $from = MAIL_FROM;
+        }
+        
+        $mail = new PHPMailer(true);
+        
+        try {
+            // Configuración del servidor SMTP
+            $mail->isSMTP();
+            $mail->Host       = MAIL_HOST;
+            $mail->SMTPAuth   = true;
+            $mail->Username   = MAIL_USERNAME;
+            $mail->Password   = MAIL_PASSWORD;
+            $mail->SMTPSecure = MAIL_ENCRYPTION;
+            $mail->Port       = MAIL_PORT;
+            $mail->CharSet    = 'UTF-8';
+            
+            // Desactivar verificación SSL en desarrollo
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+            
+            // Destinatarios
+            $mail->setFrom($from, MAIL_FROM_NAME);
+            $mail->addAddress($to);
+            
+            // Adjuntar archivo
+            if (file_exists($attachmentPath)) {
+                $mail->addAttachment($attachmentPath, $attachmentName);
+            }
+            
+            // Contenido
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = strip_tags($message);
+            
+            $mail->send();
+            return true;
+            
+        } catch (Exception $e) {
+            error_log("Error al enviar correo con adjunto: {$mail->ErrorInfo}");
+            return false;
+        }
+    }
+    
+    /**
      * Plantilla HTML para correo de activación de cuenta (ADMIN)
      */
     public static function templateActivacionAdmin($nombre, $email, $token) {
