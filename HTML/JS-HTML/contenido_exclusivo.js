@@ -1,10 +1,20 @@
 const links = document.querySelectorAll(".breadcrumb-link");
-const contenedor = document.querySelector(".contenedor-horizontal");
 
-// Función para ir a una sección específica
+// Función para ir a una sección específica con smooth scroll
 function goToSection(index) {
-  if (contenedor) {
-    contenedor.style.transform = `translateX(-${index * 100}vw)`;
+  const sections = [
+    "inicio-exclusivo",
+    "videos-exclusivos",
+    "actualizaciones-exclusivas",
+  ];
+  const targetSection = document.getElementById(sections[index]);
+
+  if (targetSection) {
+    // Scroll suave a la sección
+    targetSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
 
     // Actualizar enlaces activos
     links.forEach((l, i) => {
@@ -33,6 +43,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (section !== null) {
     // Ir a la sección especificada en la URL
-    goToSection(section);
+    setTimeout(() => goToSection(section), 100);
   }
+
+  // Observador para actualizar navbar activa al hacer scroll
+  const observerOptions = {
+    root: null,
+    rootMargin: "-100px 0px -70% 0px",
+    threshold: 0,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        const sectionIndex = [
+          "inicio-exclusivo",
+          "videos-exclusivos",
+          "actualizaciones-exclusivas",
+        ].indexOf(sectionId);
+
+        if (sectionIndex !== -1) {
+          links.forEach((l, i) => {
+            if (i === sectionIndex) {
+              l.classList.add("active");
+            } else {
+              l.classList.remove("active");
+            }
+          });
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar todas las secciones
+  document.querySelectorAll(".section").forEach((section) => {
+    observer.observe(section);
+  });
 });

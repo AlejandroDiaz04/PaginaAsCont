@@ -1,0 +1,42 @@
+# Habilitar reescritura de URL
+RewriteEngine On
+
+# Prevenir acceso directo a archivos de configuración
+<FilesMatch "\.(sql|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger carpeta de configuración
+<IfModule mod_rewrite.c>
+    RewriteRule ^backend/config/ - [F,L]
+</IfModule>
+
+# Configuración de PHP
+php_flag display_errors Off
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Habilitar CORS (ajustar según necesidades)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Comprimir archivos para mejor rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Configurar caché
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+</IfModule>

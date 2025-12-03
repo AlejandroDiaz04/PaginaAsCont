@@ -16,21 +16,25 @@ define('DB_NAME', 'ascont_pagina_web');
 define('DB_USER', 'ascont');
 define('DB_PASS', 'AlexisZaracho341');
 
-// Configuración de correo electrónico
-// IMPORTANTE: Configura estos valores con tu información de correo
-define('MAIL_HOST', 'smtp.gmail.com'); // Cambia según tu proveedor (Gmail, Outlook, etc.)
-define('MAIL_PORT', 587); // 587 para TLS, 465 para SSL
-define('MAIL_USERNAME', 'alejandrodiaz04zr@gmail.com'); // Tu correo electrónico
-define('MAIL_PASSWORD', 'lzdl pdor kdsd gxhp'); // Contraseña de aplicación de Gmail
-define('MAIL_FROM', 'alejandrodiaz04zr@gmail.com'); // Correo remitente
-define('MAIL_FROM_NAME', 'AsContSystem');
-define('MAIL_ENCRYPTION', 'tls'); // 'tls' o 'ssl'
+define('MAIL_HOST', 'localhost'); // cPanel generalmente usa localhost para cuentas creadas ahí
 
-// Correo para recibir notificaciones (trabaja con nosotros, solicitudes de demo)
-define('MAIL_ADMIN', 'alejandrodiaz04zr@gmail.com'); // Correo donde recibirás todas las solicitudes
+define('MAIL_PORT', 587);
+define('MAIL_ENCRYPTION', 'tls');
+
+//define('MAIL_PORT', 465);
+//define('MAIL_ENCRYPTION', 'ssl');
+
+// Email y contraseña de la cuenta de tu hosting
+define('MAIL_USERNAME', 'administradorweb@ascont.com.py');
+define('MAIL_PASSWORD', 'Netbeans802');
+define('MAIL_FROM', 'administradorweb@ascont.com.py');
+define('MAIL_FROM_NAME', 'AsContSystem');
+
+// Correo admin donde se recibirán las notificaciones
+define('MAIL_ADMIN', 'alejandrodiaz04zr@gmail.com'); 
 
 // Configuración del sitio
-define('SITE_URL', 'http://localhost:8000'); // URL base de tu sitio
+define('SITE_URL', 'https://ascont.com.py'); // URL base de tu sitio
 define('SITE_NAME', 'AsContSystem');
 
 // Configuración de sesiones

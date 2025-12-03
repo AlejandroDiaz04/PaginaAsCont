@@ -252,99 +252,120 @@
           </div>
           <section id="trabajaConNosotros">
             <div class="formulario">
+              <!--<form id="trabajaForm" enctype="multipart/form-data">-->
+              <!--  <h1>TRABAJA CON NOSOTROS</h1>-->
+
+              <!--  <input-->
+              <!--    type="text"-->
+              <!--    name="nombre"-->
+              <!--    id="nombre"-->
+              <!--    placeholder="Nombre completo"-->
+              <!--    required-->
+              <!--  />-->
+              <!--  <input-->
+              <!--    type="email"-->
+              <!--    name="correo"-->
+              <!--    id="correo"-->
+              <!--    placeholder="Correo electrónico"-->
+              <!--    required-->
+              <!--  />-->
+              <!--  <input-->
+              <!--    type="tel"-->
+              <!--    name="telefono"-->
+              <!--    id="telefono"-->
+              <!--    placeholder="Número de teléfono"-->
+              <!--    required-->
+              <!--  />-->
+
+              <!--  <label class="adjunto-label" id="cvLabel">-->
+              <!--    <span id="cvLabelText">-->
+              <!--      Adjuntar CV (PDF, Word - Max 2MB)</span-->
+              <!--    >-->
+              <!--    <input-->
+              <!--      type="file"-->
+              <!--      name="cv"-->
+              <!--      id="cv"-->
+              <!--      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"-->
+              <!--      required-->
+              <!--    />-->
+              <!--  </label>-->
+              <!--  <div-->
+              <!--    id="cvPreview"-->
+              <!--    style="-->
+              <!--      display: none;-->
+              <!--      margin-top: 10px;-->
+              <!--      padding: 10px;-->
+              <!--      background: #f0f0f0;-->
+              <!--      border-radius: 8px;-->
+              <!--      font-size: 14px;-->
+              <!--    "-->
+              <!--  >-->
+              <!--    <i-->
+              <!--      class="ri-file-text-line"-->
+              <!--      style="color: #ff7a00; margin-right: 5px"-->
+              <!--    ></i>-->
+              <!--    <span id="cvFileName"></span>-->
+              <!--    <span-->
+              <!--      id="cvFileSize"-->
+              <!--      style="color: #666; margin-left: 10px"-->
+              <!--    ></span>-->
+              <!--    <button-->
+              <!--      type="button"-->
+              <!--      id="removeCV"-->
+              <!--      style="-->
+              <!--        float: right;-->
+              <!--        background: #dc3545;-->
+              <!--        color: white;-->
+              <!--        border: none;-->
+              <!--        padding: 5px 10px;-->
+              <!--        border-radius: 5px;-->
+              <!--        cursor: pointer;-->
+              <!--      "-->
+              <!--    >-->
+              <!--      Eliminar-->
+              <!--    </button>-->
+              <!--  </div>-->
+
+              <!--  <textarea-->
+              <!--    name="mensaje"-->
+              <!--    id="mensaje"-->
+              <!--    placeholder="Cuéntanos por qué te gustaría unirte a nuestro equipo..."-->
+              <!--    required-->
+              <!--  ></textarea>-->
+
+              <!--  <div-->
+              <!--    id="trabajaMessage"-->
+              <!--    style="-->
+              <!--      margin: 15px 0;-->
+              <!--      padding: 10px;-->
+              <!--      border-radius: 5px;-->
+              <!--      display: none;-->
+              <!--    "-->
+              <!--  ></div>-->
+
+              <!--  <button type="submit">Enviar solicitud</button>-->
+              <!--</form>-->
               <form id="trabajaForm" enctype="multipart/form-data">
-                <h1>TRABAJA CON NOSOTROS</h1>
+  <h1>TRABAJA CON NOSOTROS</h1>
+  <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required />
+  <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required />
+  <input type="tel" name="telefono" id="telefono" placeholder="Número de teléfono" required />
 
-                <input
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  placeholder="Nombre completo"
-                  required
-                />
-                <input
-                  type="email"
-                  name="correo"
-                  id="correo"
-                  placeholder="Correo electrónico"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="telefono"
-                  id="telefono"
-                  placeholder="Número de teléfono"
-                  required
-                />
+  <label class="adjunto-label" id="cvLabel">
+    <span id="cvLabelText">Adjuntar CV (PDF, Word - Max 2MB)</span>
+    <input type="file" name="cv" id="cv" accept=".pdf,.doc,.docx" required />
+  </label>
+  <div id="cvPreview" style="display: none; margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 8px; font-size: 14px;">
+    <span id="cvFileName"></span>
+    <span id="cvFileSize" style="color: #666; margin-left: 10px"></span>
+    <button type="button" id="removeCV" style="float: right; background: #dc3545; color: white;">Eliminar</button>
+  </div>
+  
+  <textarea name="mensaje" id="mensaje" placeholder="Cuéntanos por qué te gustaría unirte..." required></textarea>
 
-                <label class="adjunto-label" id="cvLabel">
-                  <span id="cvLabelText">
-                    Adjuntar CV (PDF, Word - Max 2MB)</span
-                  >
-                  <input
-                    type="file"
-                    name="cv"
-                    id="cv"
-                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    required
-                  />
-                </label>
-                <div
-                  id="cvPreview"
-                  style="
-                    display: none;
-                    margin-top: 10px;
-                    padding: 10px;
-                    background: #f0f0f0;
-                    border-radius: 8px;
-                    font-size: 14px;
-                  "
-                >
-                  <i
-                    class="ri-file-text-line"
-                    style="color: #ff7a00; margin-right: 5px"
-                  ></i>
-                  <span id="cvFileName"></span>
-                  <span
-                    id="cvFileSize"
-                    style="color: #666; margin-left: 10px"
-                  ></span>
-                  <button
-                    type="button"
-                    id="removeCV"
-                    style="
-                      float: right;
-                      background: #dc3545;
-                      color: white;
-                      border: none;
-                      padding: 5px 10px;
-                      border-radius: 5px;
-                      cursor: pointer;
-                    "
-                  >
-                    Eliminar
-                  </button>
-                </div>
-
-                <textarea
-                  name="mensaje"
-                  id="mensaje"
-                  placeholder="Cuéntanos por qué te gustaría unirte a nuestro equipo..."
-                  required
-                ></textarea>
-
-                <div
-                  id="trabajaMessage"
-                  style="
-                    margin: 15px 0;
-                    padding: 10px;
-                    border-radius: 5px;
-                    display: none;
-                  "
-                ></div>
-
-                <button type="submit">Enviar solicitud</button>
-              </form>
+  <div id="trabajaMessage" style="margin: 15px 0; padding: 10px; border-radius: 5px; display: none;"></div>
+  <button type="submit">Enviar solicitud</button>
+</form>
             </div>
           </section>
         </div>
@@ -460,130 +481,218 @@
     <script src="/JS/scrips.js"></script>
     <script>
       // Manejar envío del formulario Trabaja con Nosotros
-      // Detectar si estamos en local o en producción
-      const API_BASE_URL =
-        window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1"
-          ? "http://localhost:8000"
-          : ""; // En producción usa rutas relativas
+    //   // Detectar si estamos en local o en producción
+    //   const API_BASE_URL =
+    //     window.location.hostname === "localhost" ||
+    //     window.location.hostname === "127.0.0.1"
+    //       ? "http://localhost:8000"
+    //       : ""; // En producción usa rutas relativas
 
-      // Validación y preview del CV
-      const cvInput = document.getElementById("cv");
-      const cvPreview = document.getElementById("cvPreview");
-      const cvFileName = document.getElementById("cvFileName");
-      const cvFileSize = document.getElementById("cvFileSize");
-      const cvLabel = document.getElementById("cvLabel");
-      const removeCV = document.getElementById("removeCV");
+    //   // Validación y preview del CV
+    //   const cvInput = document.getElementById("cv");
+    //   const cvPreview = document.getElementById("cvPreview");
+    //   const cvFileName = document.getElementById("cvFileName");
+    //   const cvFileSize = document.getElementById("cvFileSize");
+    //   const cvLabel = document.getElementById("cvLabel");
+    //   const removeCV = document.getElementById("removeCV");
 
-      cvInput.addEventListener("change", function () {
-        const file = this.files[0];
+    //   cvInput.addEventListener("change", function () {
+    //     const file = this.files[0];
 
-        if (file) {
-          // Validar tamaño (2MB)
-          const maxSize = 2 * 1024 * 1024; // 2MB en bytes
-          if (file.size > maxSize) {
-            alert("El archivo es demasiado grande. El tamaño máximo es 2MB.");
-            this.value = "";
-            cvPreview.style.display = "none";
-            return;
-          }
+    //     if (file) {
+    //       // Validar tamaño (2MB)
+    //       const maxSize = 2 * 1024 * 1024; // 2MB en bytes
+    //       if (file.size > maxSize) {
+    //         alert("El archivo es demasiado grande. El tamaño máximo es 2MB.");
+    //         this.value = "";
+    //         cvPreview.style.display = "none";
+    //         return;
+    //       }
 
-          // Validar tipo de archivo
-          const allowedTypes = [
-            "application/pdf",
-            "application/msword",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-          ];
+    //       // Validar tipo de archivo
+    //       const allowedTypes = [
+    //         "application/pdf",
+    //         "application/msword",
+    //         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    //       ];
 
-          if (!allowedTypes.includes(file.type)) {
-            alert("Solo se permiten archivos PDF o Word (.pdf, .doc, .docx)");
-            this.value = "";
-            cvPreview.style.display = "none";
-            return;
-          }
+    //       if (!allowedTypes.includes(file.type)) {
+    //         alert("Solo se permiten archivos PDF o Word (.pdf, .doc, .docx)");
+    //         this.value = "";
+    //         cvPreview.style.display = "none";
+    //         return;
+    //       }
 
-          // Mostrar información del archivo
-          cvFileName.textContent = file.name;
-          const sizeInKB = (file.size / 1024).toFixed(2);
-          cvFileSize.textContent = `(${sizeInKB} KB)`;
-          cvPreview.style.display = "block";
-          cvLabel.style.display = "none";
-        }
-      });
+    //       // Mostrar información del archivo
+    //       cvFileName.textContent = file.name;
+    //       const sizeInKB = (file.size / 1024).toFixed(2);
+    //       cvFileSize.textContent = `(${sizeInKB} KB)`;
+    //       cvPreview.style.display = "block";
+    //       cvLabel.style.display = "none";
+    //     }
+    //   });
 
-      removeCV.addEventListener("click", function () {
-        cvInput.value = "";
-        cvPreview.style.display = "none";
-        cvLabel.style.display = "block";
-      });
+    //   removeCV.addEventListener("click", function () {
+    //     cvInput.value = "";
+    //     cvPreview.style.display = "none";
+    //     cvLabel.style.display = "block";
+    //   });
 
-      document
-        .getElementById("trabajaForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
+    //   document
+    //     .getElementById("trabajaForm")
+    //     .addEventListener("submit", async function (e) {
+    //       e.preventDefault();
 
-          // Validar que hay un archivo adjunto
-          const cvFile = document.getElementById("cv").files[0];
-          if (!cvFile) {
-            alert("Por favor adjunta tu CV antes de enviar.");
-            return;
-          }
+    //       // Validar que hay un archivo adjunto
+    //       const cvFile = document.getElementById("cv").files[0];
+    //       if (!cvFile) {
+    //         alert("Por favor adjunta tu CV antes de enviar.");
+    //         return;
+    //       }
 
-          const formData = new FormData();
-          formData.append("nombre", document.getElementById("nombre").value);
-          formData.append("correo", document.getElementById("correo").value);
-          formData.append(
-            "telefono",
-            document.getElementById("telefono").value
-          );
-          formData.append("mensaje", document.getElementById("mensaje").value);
-          formData.append("cv", cvFile);
+    //       const formData = new FormData();
+    //       formData.append("nombre", document.getElementById("nombre").value);
+    //       formData.append("correo", document.getElementById("correo").value);
+    //       formData.append(
+    //         "telefono",
+    //         document.getElementById("telefono").value
+    //       );
+    //       formData.append("mensaje", document.getElementById("mensaje").value);
+    //       formData.append("cv", cvFile);
 
-          const messageContainer = document.getElementById("trabajaMessage");
-          const submitBtn = this.querySelector('button[type="submit"]');
+    //       const messageContainer = document.getElementById("trabajaMessage");
+    //       const submitBtn = this.querySelector('button[type="submit"]');
 
-          try {
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Enviando...";
+    //       try {
+    //         submitBtn.disabled = true;
+    //         submitBtn.textContent = "Enviando...";
 
-            const response = await fetch(
-              `${API_BASE_URL}/backend/api/trabaja_con_nosotros.php`,
-              {
-                method: "POST",
-                body: formData,
-              }
-            );
+    //         const response = await fetch(
+    //           `${API_BASE_URL}/backend/api/trabaja_con_nosotros.php`,
+    //           {
+    //             method: "POST",
+    //             body: formData,
+    //           }
+    //         );
 
-            const data = await response.json();
+    //         const data = await response.json();
 
-            messageContainer.style.display = "block";
+    //         messageContainer.style.display = "block";
 
-            if (data.success) {
-              messageContainer.style.background = "#d4edda";
-              messageContainer.style.color = "#155724";
-              messageContainer.style.border = "1px solid #c3e6cb";
-              messageContainer.textContent = data.message;
-              this.reset();
-              cvPreview.style.display = "none";
-              cvLabel.style.display = "block";
-            } else {
-              messageContainer.style.background = "#f8d7da";
-              messageContainer.style.color = "#721c24";
-              messageContainer.style.border = "1px solid #f5c6cb";
-              messageContainer.textContent = data.message;
-            }
-          } catch (error) {
-            messageContainer.style.display = "block";
-            messageContainer.style.background = "#f8d7da";
-            messageContainer.style.color = "#721c24";
-            messageContainer.style.border = "1px solid #f5c6cb";
-            messageContainer.textContent =
-              "Error al enviar el formulario. Por favor, intente nuevamente.";
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Enviar solicitud";
-          }
-        });
+    //         if (data.success) {
+    //           messageContainer.style.background = "#d4edda";
+    //           messageContainer.style.color = "#155724";
+    //           messageContainer.style.border = "1px solid #c3e6cb";
+    //           messageContainer.textContent = data.message;
+    //           this.reset();
+    //           cvPreview.style.display = "none";
+    //           cvLabel.style.display = "block";
+    //         } else {
+    //           messageContainer.style.background = "#f8d7da";
+    //           messageContainer.style.color = "#721c24";
+    //           messageContainer.style.border = "1px solid #f5c6cb";
+    //           messageContainer.textContent = data.message;
+    //         }
+    //       } catch (error) {
+    //         messageContainer.style.display = "block";
+    //         messageContainer.style.background = "#f8d7da";
+    //         messageContainer.style.color = "#721c24";
+    //         messageContainer.style.border = "1px solid #f5c6cb";
+    //         messageContainer.textContent =
+    //           "Error al enviar el formulario. Por favor, intente nuevamente.";
+    //       } finally {
+    //         submitBtn.disabled = false;
+    //         submitBtn.textContent = "Enviar solicitud";
+    //       }
+    //     });
+    // --- Preview y validaciones del archivo CV ---
+const cvInput = document.getElementById("cv");
+const cvPreview = document.getElementById("cvPreview");
+const cvFileName = document.getElementById("cvFileName");
+const cvFileSize = document.getElementById("cvFileSize");
+const cvLabel = document.getElementById("cvLabel");
+const removeCV = document.getElementById("removeCV");
+
+cvInput.addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const maxSize = 2 * 1024 * 1024;
+    if (file.size > maxSize) {
+      alert("El archivo es demasiado grande. Máximo 2MB.");
+      this.value = "";
+      cvPreview.style.display = "none";
+      return;
+    }
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+    if (!allowedTypes.includes(file.type)) {
+      alert("Solo se permiten PDF o Word.");
+      this.value = "";
+      cvPreview.style.display = "none";
+      return;
+    }
+    cvFileName.textContent = file.name;
+    cvFileSize.textContent = `(${(file.size/1024).toFixed(2)} KB)`;
+    cvPreview.style.display = "block";
+    cvLabel.style.display = "none";
+  }
+});
+
+removeCV.addEventListener("click", function () {
+  cvInput.value = "";
+  cvPreview.style.display = "none";
+  cvLabel.style.display = "block";
+});
+
+// --- Envío del Formulario ---
+document.getElementById("trabajaForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const cvFile = cvInput.files[0];
+  if (!cvFile) {
+    alert("Adjunta tu CV antes de enviar.");
+    return;
+  }
+
+  const formData = new FormData(this);
+  const messageContainer = document.getElementById("trabajaMessage");
+  const submitBtn = this.querySelector('button[type="submit"]');
+  try {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    const response = await fetch("/backend/api/trabaja_con_nosotros.php", {
+      method: "POST",
+      body: formData
+    });
+    const data = await response.json();
+    messageContainer.style.display = "block";
+    if (data.success) {
+      messageContainer.style.background = "#d4edda";
+      messageContainer.style.color = "#155724";
+      messageContainer.style.border = "1px solid #c3e6cb";
+      messageContainer.textContent = data.message;
+      this.reset();
+      cvPreview.style.display = "none";
+      cvLabel.style.display = "block";
+    } else {
+      messageContainer.style.background = "#f8d7da";
+      messageContainer.style.color = "#721c24";
+      messageContainer.style.border = "1px solid #f5c6cb";
+      messageContainer.textContent = data.message;
+    }
+  } catch (error) {
+    messageContainer.style.display = "block";
+    messageContainer.style.background = "#f8d7da";
+    messageContainer.style.color = "#721c24";
+    messageContainer.style.border = "1px solid #f5c6cb";
+    messageContainer.textContent = "Error al enviar el formulario. Intente nuevamente.";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar solicitud";
+  }
+});
     </script>
   </body>
 </html>
