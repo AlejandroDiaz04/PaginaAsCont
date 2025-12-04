@@ -748,8 +748,8 @@ class PageLoader {
     this.loaderPercentage = document.getElementById("loaderPercentage");
     this.loaderContent = document.querySelector(".loader-content");
     this.currentProgress = 0;
-    this.targetProgress = 0;
-    this.simulationActive = true;
+    this.duration = 1200; // 1.2 segundos
+    this.startTime = null;
     this.init();
   }
 
@@ -757,8 +757,8 @@ class PageLoader {
     //  BLOQUEAR PÁGINA AL INICIAR
     this.blockPage();
 
-    this.simulateProgress();
-    window.addEventListener("load", () => this.complete());
+    // Iniciar animación inmediatamente
+    requestAnimationFrame((timestamp) => this.animate(timestamp));
   }
 
   blockPage() {
@@ -773,39 +773,28 @@ class PageLoader {
     document.body.classList.remove("loader-active");
   }
 
-  simulateProgress() {
-    const increment = () => {
-      if (!this.simulationActive) return;
-      const random = Math.random() * 30;
-      this.targetProgress = Math.min(this.targetProgress + random, 90);
-      this.updateProgress(this.targetProgress);
-      const delay = this.targetProgress > 70 ? 400 : 300;
-      setTimeout(increment, delay);
-    };
-    setTimeout(increment, 500);
-  }
+  animate(timestamp) {
+    if (!this.startTime) this.startTime = timestamp;
 
-  updateProgress(value) {
-    const step = () => {
-      if (this.currentProgress < value) {
-        this.currentProgress += (value - this.currentProgress) * 0.1;
-        if (this.currentProgress > 99) this.currentProgress = 99;
+    const elapsed = timestamp - this.startTime;
+    const progress = Math.min((elapsed / this.duration) * 100, 100);
 
-        this.loaderLine.style.width = this.currentProgress + "%";
-        this.loaderPercentage.textContent = Math.floor(this.currentProgress);
-        requestAnimationFrame(step);
-      }
-    };
-    requestAnimationFrame(step);
+    this.currentProgress = progress;
+    this.loaderLine.style.width = progress + "%";
+    this.loaderPercentage.textContent = Math.floor(progress);
+
+    if (progress < 100) {
+      requestAnimationFrame((ts) => this.animate(ts));
+    } else {
+      this.complete();
+    }
   }
 
   complete() {
-    this.simulationActive = false;
-    this.targetProgress = 100;
     this.loaderLine.style.width = "100%";
     this.loaderPercentage.textContent = "100";
 
-    setTimeout(() => this.fadeOut(), 600);
+    setTimeout(() => this.fadeOut(), 300);
   }
 
   fadeOut() {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="AsContSystem - Desarrollo de sistemas a medida, gestión de inventario, facturación y más. Soluciones profesionales para tu empresa."
+      content="AsContSystem - Sistema de gestión empresarial IRP, facturación electrónica y mucho más. Soluciones profesionales para tu empresa."
     />
     <meta
       name="keywords"
@@ -21,7 +21,7 @@
       content="Sistemas profesionales para gestionar tu negocio"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.ascontsystem.com" />
+    <meta property="og:url" content="https://www.ascont.com.py" />
     <meta property="og:image" content="IMG/logoNube.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AsContSystem" />
@@ -29,7 +29,7 @@
       name="twitter:description"
       content="Soluciones empresariales a tu medida"
     />
-    <link rel="canonical" href="https://www.ascontsystem.com" />
+    <link rel="canonical" href="https://www.ascont.com.py" />
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/productos.css" />
     <link rel="stylesheet" href="CSS/contacto.css" />
@@ -52,8 +52,11 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="IMG/logoNube.png" />
-    <link rel="apple-touch-icon" href="IMG/logoNube.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="IMG/logoNube.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="IMG/logoNube.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="IMG/logoNube.png" />
+    <link rel="shortcut icon" href="IMG/logoNube.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -161,12 +164,12 @@
           ></div>
           <div class="capa" aria-hidden="true"></div>
           <div class="texto-sistema">
-            <h1 class="animate-text">DESARROLLO DE</h1>
+            <h1 class="animate-text">SISTEMA DE</h1>
             <h2 class="animate-text">
-              SISTEMAS <span class="destacado">A MEDIDA</span>
+              GESTIÓN <span class="destacado">ERP</span>
             </h2>
             <p class="animate-text">
-              Creamos soluciones que se adaptan<br />a las necesidades
+              Contamos con módulos que se adaptan<br />a las necesidades
               específicas de tu empresa.
             </p>
             <div class="botones animate-text">
@@ -197,6 +200,30 @@
               <a href="#contacto" class="btn btn-contacto">CONTÁCTANOS</a>
               <a href="#aplicacionMovil" class="btn btn-info">VER APLICACIÓN</a>
             </div>
+          </div>
+        </div>
+
+        <div class="slide slide-3">
+          <div
+            class="slide-background"
+            style="background-image: url('IMG/FacturacionElectronica2.png')"
+            role="img"
+            aria-label="Imagen de facturación electrónica"
+          ></div>
+          <div class="capa" aria-hidden="true"></div>
+          <div class="texto-sistema">
+            <h1 class="animate-text">FACTURACIÓN ELECTRÓNICA</h1>
+            <h2 class="animate-text">
+              CUMPLE CON LA <span class="destacado">NORMATIVA VIGENTE</span>
+            </h2>
+            <p class="animate-text">
+              Emite facturas electrónicas desde el sistema de escritorio<br />y
+              la aplicación móvil con total seguridad y validez legal.
+            </p>
+            <!-- <div class="botones animate-text">
+              <a href="#contacto" class="btn btn-contacto">CONTÁCTANOS</a>
+              <a href="#productos" class="btn btn-info">CONOCER MÁS</a>
+            </div> -->
           </div>
         </div>
 
@@ -231,6 +258,108 @@
         <button class="slide-nav next" aria-label="Siguiente slide">
           &#10095;
         </button>
+      </section>
+      <section
+        class="seccion-productos"
+        id="productos"
+        aria-label="Sección de productos"
+      >
+        <div class="productos-header">
+          <p>Nuestros Productos</p>
+          <h1>Soluciones Empresariales</h1>
+        </div>
+
+        <div class="productos-contenedor">
+          <!-- SISTEMA ESCRITORIO -->
+          <div class="producto-item">
+            <div class="mockup-wrapper">
+              <div class="mockup-container">
+                <img src="/IMG/sistemaImg.png" alt="Mockup Sistema AsCont" />
+              </div>
+            </div>
+
+            <div class="producto-info">
+              <span class="producto-badge">Sistema Escritorio</span>
+              <h3 class="producto-titulo">AsCont System</h3>
+              <div class="producto-linea"></div>
+
+              <p class="producto-descripcion">
+                Solución integral de contabilidad y gestión empresarial.
+                Diseñada para optimizar tus procesos administrativos y
+                financieros con una plataforma robusta y confiable.
+              </p>
+
+              <div class="producto-caracteristicas">
+                <h4>Características</h4>
+                <ul>
+                  <li>Multi-empresa y sucursal</li>
+                  <li>Reportes contables</li>
+                  <li>Datos en tiempo real</li>
+                  <li>Interface moderna</li>
+                  <li>Fácil integración</li>
+                  <li>Soporte técnico</li>
+                </ul>
+              </div>
+
+              <div class="producto-cta">
+                <button class="btn btn-primary" onclick="irA('sistema')">
+                  Ver Más
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="solicitarDemo('Sistema')"
+                >
+                  Solicitar Demo
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- APP MÓVIL -->
+          <div id="aplicacionMovil" class="producto-item">
+            <div class="mockup-wrapper">
+              <div class="mockup-container">
+                <img src="/IMG/appImg.png" alt="Mockup AsCont Móvil" />
+              </div>
+            </div>
+
+            <div class="producto-info">
+              <span class="producto-badge">Aplicación Móvil</span>
+              <h3 class="producto-titulo">AsCont Móvil</h3>
+              <div class="producto-linea"></div>
+
+              <p class="producto-descripcion">
+                Aplicación móvil potente para gestión de facturación, inventario
+                y clientes. Trabaja desde cualquier lugar con sincronización
+                automática en tiempo real.
+              </p>
+
+              <div class="producto-caracteristicas">
+                <h4>Características</h4>
+                <ul>
+                  <li>Facturación electrónica</li>
+                  <li>Gestión de inventario</li>
+                  <li>Control de clientes</li>
+                  <li>Gestión de precios</li>
+                  <li>Sincronización automática</li>
+                  <li>Acceso offline</li>
+                </ul>
+              </div>
+
+              <div class="producto-cta">
+                <button class="btn btn-primary" onclick="irA('movil')">
+                  Ver Más
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="solicitarDemo('Móvil')"
+                >
+                  Solicitar Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
@@ -431,109 +560,6 @@
           <div id="contenidoModal"></div>
         </div>
       </div>
-
-      <section
-        class="seccion-productos"
-        id="productos"
-        aria-label="Sección de productos"
-      >
-        <div class="productos-header">
-          <p>Nuestros Productos</p>
-          <h1>Soluciones Empresariales</h1>
-        </div>
-
-        <div class="productos-contenedor">
-          <!-- SISTEMA ESCRITORIO -->
-          <div class="producto-item">
-            <div class="mockup-wrapper">
-              <div class="mockup-container">
-                <img src="/IMG/sistemaImg.png" alt="Mockup Sistema AsCont" />
-              </div>
-            </div>
-
-            <div class="producto-info">
-              <span class="producto-badge">Sistema Escritorio</span>
-              <h3 class="producto-titulo">AsCont System</h3>
-              <div class="producto-linea"></div>
-
-              <p class="producto-descripcion">
-                Solución integral de contabilidad y gestión empresarial.
-                Diseñada para optimizar tus procesos administrativos y
-                financieros con una plataforma robusta y confiable.
-              </p>
-
-              <div class="producto-caracteristicas">
-                <h4>Características</h4>
-                <ul>
-                  <li>Multi-empresa y sucursal</li>
-                  <li>Reportes contables</li>
-                  <li>Datos en tiempo real</li>
-                  <li>Interface moderna</li>
-                  <li>Fácil integración</li>
-                  <li>Soporte técnico</li>
-                </ul>
-              </div>
-
-              <div class="producto-cta">
-                <button class="btn btn-primary" onclick="irA('sistema')">
-                  Ver Más
-                </button>
-                <button
-                  class="btn btn-secondary"
-                  onclick="solicitarDemo('Sistema')"
-                >
-                  Solicitar Demo
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- APP MÓVIL -->
-          <div id="aplicacionMovil" class="producto-item">
-            <div class="mockup-wrapper">
-              <div class="mockup-container">
-                <img src="/IMG/appImg.png" alt="Mockup AsCont Móvil" />
-              </div>
-            </div>
-
-            <div class="producto-info">
-              <span class="producto-badge">Aplicación Móvil</span>
-              <h3 class="producto-titulo">AsCont Móvil</h3>
-              <div class="producto-linea"></div>
-
-              <p class="producto-descripcion">
-                Aplicación móvil potente para gestión de facturación, inventario
-                y clientes. Trabaja desde cualquier lugar con sincronización
-                automática en tiempo real.
-              </p>
-
-              <div class="producto-caracteristicas">
-                <h4>Características</h4>
-                <ul>
-                  <li>Facturación electrónica</li>
-                  <li>Gestión de inventario</li>
-                  <li>Control de clientes</li>
-                  <li>Gestión de precios</li>
-                  <li>Sincronización automática</li>
-                  <li>Acceso offline</li>
-                </ul>
-              </div>
-
-              <div class="producto-cta">
-                <button class="btn btn-primary" onclick="irA('movil')">
-                  Ver Más
-                </button>
-                <button
-                  class="btn btn-secondary"
-                  onclick="solicitarDemo('Móvil')"
-                >
-                  Solicitar Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section class="intermedio-seccion">
         <!-- <div class="capa-texto" aria-hidden="true" loading="lazy"></div> -->

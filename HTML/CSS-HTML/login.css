@@ -43,8 +43,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #0004ff;
+  background-color: #2f2bff;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -52,8 +52,14 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  transition: transform 0.3s ease-in-out;
 }
-
+button:hover {
+  background-color: #ff4b2b;
+  border-color: #ff4b2b;
+  cursor: pointer;
+  transform: translateY(-1px);
+}
 button:active {
   transform: scale(0.95);
 }
@@ -158,9 +164,9 @@ input {
 }
 
 .overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #0a84ff;
+  background: -webkit-linear-gradient(to right, #002a55, #0a84ff);
+  background: linear-gradient(to right, #002a55, #0a84ff);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -266,8 +272,8 @@ footer a {
   height: 350px;
   background: radial-gradient(
     circle,
-    rgba(255, 65, 108, 0.25),
-    rgba(255, 75, 43, 0.15)
+    rgba(10, 132, 255, 0.25),
+    rgba(0, 42, 85, 0.15)
   );
   filter: blur(60px);
   border-radius: 50%;
@@ -281,8 +287,8 @@ footer a {
   left: 60%;
   background: radial-gradient(
     circle,
-    rgba(255, 75, 43, 0.25),
-    rgba(255, 65, 108, 0.1)
+    rgba(0, 42, 85, 0.25),
+    rgba(10, 132, 255, 0.1)
   );
   animation-duration: 22s;
 }
@@ -294,8 +300,8 @@ footer a {
   left: 20%;
   background: radial-gradient(
     circle,
-    rgba(255, 65, 108, 0.2),
-    rgba(255, 75, 43, 0.12)
+    rgba(10, 132, 255, 0.2),
+    rgba(0, 42, 85, 0.12)
   );
   animation-duration: 26s;
 }
