@@ -16,15 +16,13 @@ define('DB_NAME', 'ascont_pagina_web');
 define('DB_USER', 'ascont');
 define('DB_PASS', 'AlexisZaracho341');
 
-// Para cPanel usa mail.tudominio.com o smtp.tudominio.com
-define('MAIL_HOST', 'mail.ascont.com.py'); // Cambia según tu hosting
+define('MAIL_HOST', 'localhost'); // cPanel generalmente usa localhost para cuentas creadas ahí
 
-define('MAIL_PORT', 465);
-define('MAIL_ENCRYPTION', 'ssl');
+define('MAIL_PORT', 587);
+define('MAIL_ENCRYPTION', 'tls');
 
-// Alternativa si 465 no funciona:
-//define('MAIL_PORT', 587);
-//define('MAIL_ENCRYPTION', 'tls');
+//define('MAIL_PORT', 465);
+//define('MAIL_ENCRYPTION', 'ssl');
 
 // Email y contraseña de la cuenta de tu hosting
 define('MAIL_USERNAME', 'administradorweb@ascont.com.py');
