@@ -230,97 +230,8 @@ window.addEventListener(
   { passive: true }
 );
 
-let sliderInitialized = false;
-
-function initSlider() {
-  if (sliderInitialized) return;
-
-  let currentSlide = 0;
-  const slides = document.querySelectorAll(".slide");
-  const indicators = document.querySelectorAll(".indicator");
-  let autoSlideInterval;
-
-  function showSlide(index) {
-    if (index >= slides.length) {
-      currentSlide = 0;
-    } else if (index < 0) {
-      currentSlide = slides.length - 1;
-    } else {
-      currentSlide = index;
-    }
-
-    slides.forEach((slide) => slide.classList.remove("active"));
-    indicators.forEach((indicator) => indicator.classList.remove("active"));
-
-    slides[currentSlide].classList.add("active");
-    indicators[currentSlide].classList.add("active");
-  }
-
-  function changeSlide(direction) {
-    showSlide(currentSlide + direction);
-    resetAutoSlide();
-  }
-
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 10000);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-  }
-
-  document.querySelectorAll(".indicator").forEach((indicator, index) => {
-    indicator.addEventListener("click", () => {
-      showSlide(index);
-      resetAutoSlide();
-    });
-  });
-
-  const prevBtn = document.querySelector(".slide-nav.prev");
-  const nextBtn = document.querySelector(".slide-nav.next");
-
-  if (prevBtn) prevBtn.addEventListener("click", () => changeSlide(-1));
-  if (nextBtn) nextBtn.addEventListener("click", () => changeSlide(1));
-
-  document
-    .querySelector(".seccion-inicio")
-    ?.addEventListener("mouseenter", () => {
-      clearInterval(autoSlideInterval);
-    });
-
-  document
-    .querySelector(".seccion-inicio")
-    ?.addEventListener("mouseleave", () => {
-      startAutoSlide();
-    });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") changeSlide(-1);
-    else if (e.key === "ArrowRight") changeSlide(1);
-  });
-
-  startAutoSlide();
-  sliderInitialized = true;
-}
-
-const sliderObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        initSlider();
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-const inicioSection = document.querySelector(".seccion-inicio");
-if (inicioSection) {
-  sliderObserver.observe(inicioSection);
-}
+// ===================== SISTEMA DE SLIDES ELIMINADO (DUPLICADO) =====================
+// El sistema de slides ahora se maneja con la barra de progreso más abajo en el código
 
 const contenidoModulos = {
   stock: {
@@ -827,6 +738,7 @@ let autoSlideInterval;
 let progressInterval;
 let startTime;
 let isPaused = false;
+let totalSlides = 0; // Cache del total de slides
 
 // ===================== FUNCIÓN AUXILIAR PARA RESETEAR LA BARRA DE PROGRESO =====================
 
@@ -848,19 +760,39 @@ function inicializarProgressBar() {
   const progressBar = document.querySelector(".slide-progress-bar");
   const progressFill = document.querySelector(".progress-fill");
 
-  if (!progressBar || !progressFill) return;
+  if (!progressBar || !progressFill || slides.length === 0) return;
+
+  // Cachear el total de slides
+  totalSlides = slides.length;
 
   // Event listeners para marcadores
   markers.forEach((marker, index) => {
-    marker.addEventListener("click", () => goToSlide(index));
+    marker.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      goToSlide(index);
+    });
   });
 
   // Event listeners para navegación de flechas
   const prevBtn = document.querySelector(".slide-nav.prev");
   const nextBtn = document.querySelector(".slide-nav.next");
 
-  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      prevSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      nextSlide();
+    });
+  }
 
   // Pausar en hover/focus
   progressBar.addEventListener("mouseenter", pauseSlideAnimation);
@@ -878,6 +810,10 @@ function inicializarProgressBar() {
 // ===================== FUNCIONES DE CONTROL DE SLIDES =====================
 
 function goToSlide(index) {
+  // Validar el índice
+  if (index < 0 || index >= totalSlides) return;
+
+  // Detener intervalos
   clearInterval(autoSlideInterval);
   clearInterval(progressInterval);
 
@@ -886,7 +822,9 @@ function goToSlide(index) {
 
   // Actualizar slides
   slides.forEach((slide) => slide.classList.remove("active"));
-  slides[index].classList.add("active");
+  if (slides[index]) {
+    slides[index].classList.add("active");
+  }
 
   // Actualizar marcadores
   markers.forEach((marker, i) => {
@@ -903,13 +841,11 @@ function goToSlide(index) {
 }
 
 function nextSlide() {
-  const totalSlides = document.querySelectorAll(".slide").length;
   const nextIndex = (currentSlide + 1) % totalSlides;
   goToSlide(nextIndex);
 }
 
 function prevSlide() {
-  const totalSlides = document.querySelectorAll(".slide").length;
   const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
   goToSlide(prevIndex);
 }

@@ -198,6 +198,22 @@ input {
   transition: transform 0.6s ease-in-out;
 }
 
+/* Logo en el overlay - ahora dentro de cada panel */
+.overlay-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: auto;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.overlay-logo img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
 .overlay-left {
   transform: translateX(-20%);
 }
