@@ -43,8 +43,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #0a84ff;
+  background-color: #0a84ff;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -158,9 +158,9 @@ input {
 }
 
 .overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #0a84ff;
+  background: -webkit-linear-gradient(to right, #002a55, #0a84ff);
+  background: linear-gradient(to right, #002a55, #0a84ff);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -266,8 +266,8 @@ footer a {
   height: 350px;
   background: radial-gradient(
     circle,
-    rgba(255, 65, 108, 0.25),
-    rgba(255, 75, 43, 0.15)
+    rgba(100, 65, 255, 0.25),
+    rgba(75, 43, 255, 0.15)
   );
   filter: blur(60px);
   border-radius: 50%;
@@ -281,8 +281,8 @@ footer a {
   left: 60%;
   background: radial-gradient(
     circle,
-    rgba(255, 75, 43, 0.25),
-    rgba(255, 65, 108, 0.1)
+    rgba(47, 43, 255, 0.25),
+    rgba(68, 65, 255, 0.1)
   );
   animation-duration: 22s;
 }
@@ -294,8 +294,8 @@ footer a {
   left: 20%;
   background: radial-gradient(
     circle,
-    rgba(255, 65, 108, 0.2),
-    rgba(255, 75, 43, 0.12)
+    rgba(65, 78, 255, 0.2),
+    rgba(43, 75, 255, 0.12)
   );
   animation-duration: 26s;
 }
@@ -310,4 +310,18 @@ footer a {
   100% {
     transform: translate(0px, 0px) rotate(0deg);
   }
+}
+.overlay-left img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  animation: slideInLeft 1s ease-out forwards;
+}
+.overlay-right img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px;
+  animation: slideInRight 1s ease-out forwards;
 }
