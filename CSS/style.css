@@ -455,7 +455,7 @@ main {
 }
 
 /* Pantallas medianas - laptops pequeños y tablets grandes */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .navegacion {
     padding: 5px 35px;
   }
@@ -470,11 +470,11 @@ main {
   }
 
   .logo {
-    height: 75px;
+    height: 60px;
   }
-}
+} */
 
-@media (max-width: 1024px) and (min-width: 769px) {
+/* @media (max-width: 1024px) and (min-width: 769px) {
   .navegacion {
     padding: 5px 25px;
   }
@@ -490,10 +490,10 @@ main {
   .logo {
     height: 60px;
   }
-}
+} */
 
 /* Pantallas muy pequeñas - móviles pequeños */
-@media (max-width: 380px) {
+/* @media (max-width: 380px) {
   .logo {
     height: 45px;
   }
@@ -501,7 +501,7 @@ main {
   .navegacion {
     padding: 8px 15px;
   }
-}
+} */
 /* ===================== SECCIÓN INICIO - RESPONSIVE MEJORADO ===================== */
 
 .seccion-inicio {
