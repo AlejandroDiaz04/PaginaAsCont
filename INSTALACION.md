@@ -1,10 +1,9 @@
-# 🚀 GUÍA RÁPIDA DE INSTALACIÓN - AsContSystem Backend
 
 ## ✅ Lo que se ha creado
 
 ### 1. **Base de Datos PostgreSQL**
 
-- **Archivo:** `backend/database/schema.sql`
+- **Archivo:** `database/schema.sql`
 - **Tablas:**
   - `usuarios` - Almacena usuarios registrados
   - `tokens_activacion` - Tokens para activar cuentas
@@ -38,15 +37,15 @@
 **Opción A - Usando el script PowerShell:**
 
 ```powershell
-cd backend/database
+cd database
 .\install.ps1
 ```
 
 **Opción B - Manual:**
 
 1. Abre pgAdmin o psql
-2. Conéctate a PostgreSQL (usuario: postgres, contraseña: assoftware)
-3. Ejecuta el archivo `backend/database/schema.sql`
+2. Conéctate a PostgreSQL con el usuario y contraseña de tu entorno local
+3. Ejecuta el archivo `database/schema.sql`
 
 ### PASO 2: Configurar Correo Electrónico
 
@@ -126,36 +125,27 @@ Luego abrir: http://localhost:8000
 ## 📂 ESTRUCTURA DE ARCHIVOS
 
 ```
-paginaWeb - copia/
-├── backend/
-│   ├── api/                    # Endpoints PHP
-│   │   ├── activar_cuenta.php
-│   │   ├── check_session.php
-│   │   ├── login.php
-│   │   ├── logout.php
-│   │   ├── registro.php
-│   │   ├── solicitud_demo.php
-│   │   └── trabaja_con_nosotros.php
-│   ├── config/                 # Configuración
-│   │   ├── config.php          # ← CONFIGURAR AQUÍ
-│   │   ├── Database.php
-│   │   └── Mailer.php
-│   ├── database/               # Base de datos
-│   │   ├── schema.sql          # ← EJECUTAR ESTE SQL
-│   │   └── install.ps1
-│   └── uploads/                # Archivos subidos
-│       └── cv/
-├── HTML/
-│   ├── contenido_exclusivo.html  # Nueva página
-│   ├── demo.html                 # Actualizado
-│   ├── empresa.html              # Actualizado
-│   ├── login.html                # Actualizado
-│   ├── CSS-HTML/
-│   │   └── contenido_exclusivo.css  # Nuevo
-│   └── JS-HTML/
-│       ├── contenido_exclusivo.js   # Nuevo
-│       └── login.js                  # Actualizado
-└── ...
+PaginaAsCont/
+├── index.html
+├── HTML/                       # URLs públicas /HTML/*.html
+├── assets/
+│   ├── css/
+│   │   └── pages/
+│   ├── js/
+│   │   └── pages/
+│   └── images/
+│       └── clients/
+├── includes/                   # Preparada; aún no se usa
+├── database/
+│   ├── schema.sql
+│   └── install.ps1
+└── backend/
+    ├── api/
+    ├── config/
+    │   ├── config.example.php
+    │   └── config.php          # Solo en el servidor; no versionar
+    ├── lib/
+    └── uploads/cv/
 ```
 
 ## 🔍 FLUJO DE AUTENTICACIÓN
@@ -187,10 +177,8 @@ USUARIO EXISTENTE:
 
 ### Error de base de datos:
 
-- ✅ Verificar que PostgreSQL esté corriendo
-- ✅ Verificar contraseña: `assoftware`
-- ✅ Verificar que existe la base de datos `pagina_web`
-- ✅ Ejecutar `schema.sql` si no se crearon las tablas
+- ✅ Verificar credenciales de PostgreSQL en `config.php`
+- ✅ Verificar que existe la base de datos configurada
 
 ### Error al subir CV:
 

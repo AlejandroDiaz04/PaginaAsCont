@@ -5,11 +5,6 @@
  */
 
 // Configuración de la base de datos PostgreSQL
-// define('DB_HOST', 'localhost');
-// define('DB_PORT', '5432');
-// define('DB_NAME', 'pagina_web');
-// define('DB_USER', 'postgres');
-// define('DB_PASS', 'assoftware');
 define('DB_HOST', 'localhost');
 define('DB_PORT', '5432');
 define('DB_NAME', 'ascont_pagina_web');
@@ -46,10 +41,7 @@ define('TOKEN_EXPIRATION', 3600 * 48); // 48 horas para activación de cuenta
 // Zona horaria
 date_default_timezone_set('America/Asuncion');
 
-// Habilitar errores en desarrollo (desactivar en producción)
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Codificación
-header('Content-Type: text/html; charset=utf-8');
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 ?>

@@ -2,14 +2,14 @@ const clientesCarrusel = document.getElementById("clientesPista");
 
 if (clientesCarrusel) {
   const clientesData = [
-    "IMG-CLIENTE/ascim.png",
-    "IMG-CLIENTE/saborca.png",
-    "IMG-CLIENTE/serigraf.png",
-    "IMG-CLIENTE/excelsior.png",
-    "IMG-CLIENTE/bigcenter.png",
-    "IMG-CLIENTE/clubHipico.jpeg",
-    "IMG-CLIENTE/ganaderaSofia.png",
-    "IMG-CLIENTE/acostruir.jpg",
+    "/assets/images/clients/ascim.png",
+    "/assets/images/clients/saborca.png",
+    "/assets/images/clients/serigraf.png",
+    "/assets/images/clients/excelsior.png",
+    "/assets/images/clients/bigcenter.png",
+    "/assets/images/clients/clubHipico.jpeg",
+    "/assets/images/clients/ganaderaSofia.png",
+    "/assets/images/clients/acostruir.jpg",
   ];
 
   let isPaused = false;

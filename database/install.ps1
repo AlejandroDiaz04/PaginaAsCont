@@ -10,7 +10,7 @@ Write-Host ""
 # Configuración
 $DB_NAME = "pagina_web"
 $DB_USER = "postgres"
-$DB_PASS = "assoftware"
+$DB_PASS = "cambiar_esta_contraseña"
 $SCHEMA_FILE = "schema.sql"
 
 Write-Host "Configuración:" -ForegroundColor Yellow

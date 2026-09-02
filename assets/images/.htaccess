@@ -1,0 +1,13 @@
+# Bloquear acceso HTTP directo al video de presentación.
+# El archivo permanece en disco; se sirve solo vía video_presentacion.php.
+<IfModule mod_authz_core.c>
+    <Files "presentacion1.mp4">
+        Require all denied
+    </Files>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <Files "presentacion1.mp4">
+        Order allow,deny
+        Deny from all
+    </Files>
+</IfModule>

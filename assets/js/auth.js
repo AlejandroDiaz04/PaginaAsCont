@@ -1,33 +1,32 @@
-// Detectar si estamos en local o en producción
 const API_BASE_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:8000"
-    : ""; // En producción usa rutas relativas
+    : "";
 
-// Verificar si el usuario está logueado
-function verificarAutenticacion() {
-  // Obtener el token o sesión del usuario (ajusta según tu backend)
-  const usuarioLogueado = localStorage.getItem("usuarioLogueado");
-  const token = localStorage.getItem("authToken");
-
-  return usuarioLogueado === "true" || !!token;
+async function verificarAutenticacion() {
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}/backend/api/check_session.php`,
+      { credentials: "include" }
+    );
+    const data = await response.json();
+    return data && data.authenticated === true;
+  } catch (e) {
+    return false;
+  }
 }
 
-// Actualizar la UI según el estado de autenticación
-function actualizarUISegunAutenticacion() {
-  const isLoggedIn = verificarAutenticacion();
+function aplicarUIAutenticada(isLoggedIn) {
   const selectItem = document.querySelector(".nav-select-item");
   const loginItem = document.querySelector(".nav-login-item");
   const loginBtn = document.querySelector(".btn-login");
 
   if (isLoggedIn) {
-    // Usuario logueado: mostrar select y cambiar login a logout
     if (selectItem) {
       selectItem.style.display = "block";
     }
 
-    // Cambiar el link de login a logout
     if (loginItem) {
       const loginLink = loginItem.querySelector(".nav-login-link");
       loginLink.innerHTML =
@@ -42,18 +41,15 @@ function actualizarUISegunAutenticacion() {
       loginBtn.onclick = cerrarSesion;
     }
 
-    // Habilitar el select
     const select = document.getElementById("contenidoExclusivoSelect");
     if (select) {
       select.disabled = false;
     }
   } else {
-    // Usuario no logueado: ocultar select y mantener login
     if (selectItem) {
       selectItem.style.display = "none";
     }
 
-    // Restaurar el link de login
     if (loginItem) {
       const loginLink = loginItem.querySelector(".nav-login-link");
       loginLink.innerHTML =
@@ -68,7 +64,6 @@ function actualizarUISegunAutenticacion() {
       loginBtn.onclick = null;
     }
 
-    // Deshabilitar el select
     const select = document.getElementById("contenidoExclusivoSelect");
     if (select) {
       select.disabled = true;
@@ -76,37 +71,31 @@ function actualizarUISegunAutenticacion() {
   }
 }
 
-// Función para cerrar sesión
-function cerrarSesion() {
-  // Eliminar datos de sesión
-  localStorage.removeItem("usuarioLogueado");
-  localStorage.removeItem("authToken");
-  localStorage.removeItem("nombreUsuario");
-  localStorage.removeItem("userEmail");
+async function actualizarUISegunAutenticacion() {
+  const isLoggedIn = await verificarAutenticacion();
+  aplicarUIAutenticada(isLoggedIn);
+}
 
-  // Llamar al backend para cerrar sesión en el servidor
+function cerrarSesion() {
   fetch(`${API_BASE_URL}/backend/api/logout.php`, {
     method: "POST",
     credentials: "include",
   })
+    .then((response) => response.json().catch(() => ({})))
     .then(() => {
-      // Actualizar la UI
-      actualizarUISegunAutenticacion();
-
-      // Redirigir al inicio
+      localStorage.removeItem("nombreUsuario");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("redirectAfterLogin");
+      aplicarUIAutenticada(false);
       window.location.href = "/index.html";
     })
-    .catch((error) => {
-      console.error("Error al cerrar sesión:", error);
-      // Redirigir aunque haya error
+    .catch(() => {
       window.location.href = "/index.html";
     });
 }
 
-// Ejecutar cuando se carga la página
 document.addEventListener("DOMContentLoaded", actualizarUISegunAutenticacion);
 
-// Escuchar cambios en el select
 document.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("contenidoExclusivoSelect");
   if (select) {

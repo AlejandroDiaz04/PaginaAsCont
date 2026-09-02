@@ -1,0 +1,7 @@
+# Gate de contenido exclusivo (refuerzo en el directorio HTML/).
+# La URL pública /HTML/contenido_exclusivo.html se mantiene.
+# En contexto de directorio, el patrón es relativo a HTML/.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^contenido_exclusivo\.html$ /backend/api/contenido_exclusivo.php [L]
+</IfModule>

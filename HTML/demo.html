@@ -7,8 +7,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/CSS/style.css" />
-    <link rel="stylesheet" href="CSS-HTML/demo.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/pages/demo.css" />
     <title>Formulario Demo</title>
   </head>
 
@@ -69,6 +69,16 @@
           pattern="[0-9+ ]+"
         />
 
+        <label class="privacy-consent">
+          <input type="checkbox" id="aceptoPrivacidad" name="acepto_privacidad" required />
+          <span
+            >He leído la
+            <a href="/HTML/politica-de-privacidad.html" target="_blank" rel="noopener"
+              >política de privacidad</a
+            ></span
+          >
+        </label>
+
         <div
           id="messageContainer"
           style="
@@ -82,7 +92,7 @@
         <button type="submit">Enviar Solicitud</button>
       </form>
     </main>
-    <script src="/JS/scrips.js"></script>
+    <script src="/assets/js/scrips.js"></script>
     <script>
       // Manejar envío del formulario de demo
       // Detectar si estamos en local o en producción
@@ -96,6 +106,12 @@
         .getElementById("demoForm")
         .addEventListener("submit", async function (e) {
           e.preventDefault();
+
+          const consentimiento = document.getElementById("aceptoPrivacidad");
+          if (!consentimiento.checked) {
+            consentimiento.reportValidity();
+            return;
+          }
 
           const formData = {
             name: document.getElementById("name").value,

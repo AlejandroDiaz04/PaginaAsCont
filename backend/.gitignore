@@ -1,10 +1,12 @@
 # Archivos de configuración sensibles
 .env
+config.php
 config.php.local
 
 # Archivos subidos por usuarios
 uploads/cv/*
 !uploads/cv/.gitkeep
+!uploads/cv/.htaccess
 
 # Logs
 *.log

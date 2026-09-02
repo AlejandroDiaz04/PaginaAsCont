@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS-HTML/login.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/IMG/logoNube.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/IMG/logoNube.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/IMG/logoNube.png" />
-    <link rel="shortcut icon" href="/IMG/logoNube.png" />
+    <link rel="stylesheet" href="/assets/css/pages/login.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logoNube.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logoNube.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logoNube.png" />
+    <link rel="shortcut icon" href="/assets/images/logoNube.png" />
     <link
       <link
       rel="stylesheet"
@@ -51,6 +51,20 @@
             required
             minlength="6"
           />
+          <label class="privacy-consent">
+            <input
+              type="checkbox"
+              id="aceptoPrivacidadRegistro"
+              name="acepto_privacidad"
+              required
+            />
+            <span
+              >He leído la
+              <a href="/HTML/politica-de-privacidad.html"
+                >política de privacidad</a
+              ></span
+            >
+          </label>
           <div
             id="signUpMessage"
             style="
@@ -114,7 +128,7 @@
           <div class="overlay-panel overlay-left">
             <!-- Logo en panel izquierdo -->
             <div class="overlay-logo">
-              <img src="/IMG/LogoBlancoPng.png" alt="AsContSystem Logo" />
+              <img src="/assets/images/LogoBlancoPng.png" alt="AsContSystem Logo" />
             </div>
             <h1>Bienvenidos a AsCont!</h1>
             <p>Tu empresa de desarrollo de software de confianza.</p>
@@ -123,7 +137,7 @@
           <div class="overlay-panel overlay-right">
             <!-- Logo en panel derecho -->
             <div class="overlay-logo">
-              <img src="/IMG/LogoBlancoPng.png" alt="AsContSystem Logo" />
+              <img src="/assets/images/LogoBlancoPng.png" alt="AsContSystem Logo" />
             </div>
             <h1>¡Hola, Amigo!</h1>
             <p>
@@ -140,6 +154,8 @@
       <p>
         2025 AsCont Software Solutions. All rights reserved. Desings with
         AlejandroDiaz
+        ·
+        <a href="/HTML/politica-de-privacidad.html">Privacidad</a>
       </p>
 
       <!-- Created with <i class="fa fa-heart"></i> by
@@ -152,6 +168,6 @@
         >.
       </p> -->
     </footer>
-    <script src="JS-HTML/login.js"></script>
+    <script src="/assets/js/pages/login.js"></script>
   </body>
 </html>

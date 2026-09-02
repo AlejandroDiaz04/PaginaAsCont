@@ -16,7 +16,7 @@ body {
   width: 100%;
   height: 100vh;
   padding: clamp(1rem, 5vw, 3rem);
-  background-image: url(/IMG/fondoParaEmpresa.jpg);
+  background-image: url("/assets/images/fondoParaEmpresa.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -167,7 +167,7 @@ body {
   height: auto;
   flex-direction: column;
   padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 3vw, 2rem);
-  background-image: url("/IMG/fondo-empresa.jpg");
+  background-image: url("/assets/images/fondo-empresa.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -294,7 +294,7 @@ body {
   padding: clamp(2rem, 4vw, 3rem);
   justify-items: center;
   align-items: start;
-  background-image: url("/IMG/circuitos.jpg");
+  background-image: url("/assets/images/circuitos.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -360,7 +360,7 @@ body {
   flex: 1;
   min-height: 400px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(/IMG/presentacion-img.jpg);
+    url("/assets/images/presentacion-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -466,6 +466,25 @@ body {
 .adjunto-label:hover {
   border: 1.5px solid #fcb64e;
   background: #ff8513;
+}
+
+.privacy-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #fff;
+  cursor: pointer;
+}
+
+.privacy-consent input {
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+
+.privacy-consent a {
+  color: #ffd19a;
 }
 
 /* Botón */

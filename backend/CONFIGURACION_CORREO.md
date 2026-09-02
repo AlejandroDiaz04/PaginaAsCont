@@ -54,12 +54,11 @@ XAMPP incluye Mercury Mail, pero su configuración es compleja.
 
 ## Configuración Actual
 
-Tu sistema está configurado para:
+Tu sistema debe configurarse en `backend/config/config.php` (no versionado):
 
-- **SMTP Host:** smtp.gmail.com
-- **Puerto:** 587
-- **Email:** alejandrodiaz04zr@gmail.com
-- **Destinatario:** alejandrodiaz04zr@gmail.com
+- **SMTP Host:** el de tu hosting o proveedor
+- **Puerto:** 587 (TLS) o el que indique el proveedor
+- **Email / Destinatario:** los definidos en `MAIL_FROM` y `MAIL_ADMIN`
 
 ## Notas Importantes
 

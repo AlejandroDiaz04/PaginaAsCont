@@ -72,12 +72,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ========== CERRAR MENÚ CUANDO SE RESIZE LA VENTANA ==========
   window.addEventListener("resize", function () {
-    // Si la ventana es mayor a 768px y el menú está abierto, cerrarlo
-    if (window.innerWidth > 768) {
+    if (window.innerWidth >= 1200) {
       if (navMenu.classList.contains("active")) {
         hamburgerBtn.classList.remove("active");
         navMenu.classList.remove("active");
         hamburgerBtn.setAttribute("aria-expanded", "false");
+        hamburgerBtn.setAttribute("aria-label", "Abrir menú");
       }
     }
   });
@@ -236,8 +236,8 @@ window.addEventListener(
 const contenidoModulos = {
   stock: {
     titulo: "Gestión de Stock",
-    icono: "IMG/stock.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/stock.png",
+    logo: "/assets/images/logoNube.png",
     descripcion:
       "Control completo de tu inventario con herramientas profesionales",
     caracteristicas: [
@@ -257,8 +257,8 @@ const contenidoModulos = {
 
   facturacion: {
     titulo: "Facturación y Ventas",
-    icono: "IMG/facturcion.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/facturcion.png",
+    logo: "/assets/images/logoNube.png",
     descripcion:
       "Sistema integral para gestionar todas tus operaciones de venta",
     caracteristicas: [
@@ -280,8 +280,8 @@ const contenidoModulos = {
 
   inventario: {
     titulo: "Control de Inventario",
-    icono: "IMG/inventario.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/inventario.png",
+    logo: "/assets/images/logoNube.png",
     descripcion: "Mantén tu stock actualizado con inventarios físicos precisos",
     caracteristicas: [
       "Creación de planillas de inventario por secciones",
@@ -299,8 +299,8 @@ const contenidoModulos = {
 
   reportes: {
     titulo: "Reportes y Análisis",
-    icono: "IMG/reportes.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/reportes.png",
+    logo: "/assets/images/logoNube.png",
     descripcion: "Información precisa para tomar las mejores decisiones",
     caracteristicas: [
       "Reportes de ventas por período",
@@ -318,8 +318,8 @@ const contenidoModulos = {
 
   finanzas: {
     titulo: "Gestión Financiera",
-    icono: "IMG/finanzas.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/finanzas.png",
+    logo: "/assets/images/logoNube.png",
     descripcion: "Control total de tu flujo de efectivo",
     caracteristicas: [
       "Control de cajas y bancos",
@@ -337,8 +337,8 @@ const contenidoModulos = {
 
   rrhh: {
     titulo: "Recursos Humanos",
-    icono: "IMG/RRHH.png",
-    logo: "IMG/logoNube.png",
+    icono: "/assets/images/RRHH.png",
+    logo: "/assets/images/logoNube.png",
     descripcion: "Administra tu personal de forma eficiente",
     caracteristicas: [
       "Gestión de legajos",
@@ -526,12 +526,12 @@ function navegarAPagina(tipo, elemento) {
 
   setTimeout(() => {
     if (tipo === "empresa") {
-      window.location.href = "HTML/empresa.html";
+      window.location.href = "/HTML/empresa.html";
     }
     if (tipo === "movil") {
-      window.location.href = "HTML/aplicacion.html";
+      window.location.href = "/HTML/aplicacion.html";
     } else if (tipo === "sistema") {
-      window.location.href = "HTML/sistema.html";
+      window.location.href = "/HTML/sistema.html";
     }
   }, 300);
 }

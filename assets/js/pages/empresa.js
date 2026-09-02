@@ -46,3 +46,6 @@ if (document.readyState === "loading") {
 } else {
   inicializarAnimacionesScroll();
 }
+
+// Contacto se carga async como componente
+document.addEventListener("contacto:loaded", inicializarAnimacionesScroll);

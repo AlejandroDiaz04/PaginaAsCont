@@ -2,12 +2,11 @@ const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
 
-// Detectar si estamos en local o en producción
 const API_BASE_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:8000"
-    : ""; // En producción usa rutas relativas
+    : "";
 
 signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
@@ -17,7 +16,6 @@ signInButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });
 
-// Crear burbujas animadas en el fondo
 const bg = document.getElementById("interactive-bg");
 
 for (let i = 0; i < 3; i++) {
@@ -26,19 +24,35 @@ for (let i = 0; i < 3; i++) {
   bg.appendChild(blob);
 }
 
-// Manejar formulario de registro (Sign Up)
+function isSafeRedirect(url) {
+  if (!url) return false;
+  try {
+    if (url.startsWith("/") && !url.startsWith("//")) {
+      return true;
+    }
+    const parsed = new URL(url, window.location.origin);
+    return parsed.origin === window.location.origin;
+  } catch (e) {
+    return false;
+  }
+}
+
 document
   .getElementById("signUpForm")
   .addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    const consentimiento = document.getElementById("aceptoPrivacidadRegistro");
+    if (!consentimiento || !consentimiento.checked) {
+      if (consentimiento) consentimiento.reportValidity();
+      return;
+    }
 
     const formData = {
       nombre: document.getElementById("signUpName").value,
       email: document.getElementById("signUpEmail").value,
       password: document.getElementById("signUpPassword").value,
     };
-
-    console.log("Datos a enviar:", formData); // Debug
 
     const messageContainer = document.getElementById("signUpMessage");
     const submitBtn = this.querySelector('button[type="submit"]');
@@ -52,12 +66,11 @@ document
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
 
-      console.log("Response status:", response.status); // Debug
       const data = await response.json();
-      console.log("Response data:", data); // Debug
 
       messageContainer.style.display = "block";
 
@@ -86,7 +99,6 @@ document
     }
   });
 
-// Manejar formulario de inicio de sesión (Sign In)
 document
   .getElementById("signInForm")
   .addEventListener("submit", async function (e) {
@@ -96,8 +108,6 @@ document
       email: document.getElementById("signInEmail").value,
       password: document.getElementById("signInPassword").value,
     };
-
-    console.log("Login - Datos a enviar:", formData); // Debug
 
     const messageContainer = document.getElementById("signInMessage");
     const submitBtn = this.querySelector('button[type="submit"]');
@@ -111,38 +121,54 @@ document
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
 
-      console.log("Login - Response status:", response.status); // Debug
       const data = await response.json();
-      console.log("Login - Response data:", data); // Debug
 
       messageContainer.style.display = "block";
 
       if (data.success) {
-        // Guardar sesión en localStorage
-        localStorage.setItem("usuarioLogueado", "true");
-        localStorage.setItem("authToken", data.token || "session_active");
-        localStorage.setItem("nombreUsuario", data.user?.nombre || "");
-        localStorage.setItem("userEmail", data.user?.email || "");
+        if (data.user?.nombre) {
+          localStorage.setItem("nombreUsuario", data.user.nombre);
+        }
+        if (data.user?.email) {
+          localStorage.setItem("userEmail", data.user.email);
+        }
+
+        const sessionResponse = await fetch(
+          `${API_BASE_URL}/backend/api/check_session.php`,
+          { credentials: "include" }
+        );
+        const sessionData = await sessionResponse.json();
+
+        if (!sessionData.authenticated) {
+          messageContainer.style.background = "#f8d7da";
+          messageContainer.style.color = "#721c24";
+          messageContainer.style.border = "1px solid #f5c6cb";
+          messageContainer.textContent =
+            "No se pudo confirmar la sesión. Intente nuevamente.";
+          return;
+        }
 
         messageContainer.style.background = "#d4edda";
         messageContainer.style.color = "#155724";
         messageContainer.style.border = "1px solid #c3e6cb";
         messageContainer.textContent = data.message;
 
-        // Verificar si hay una URL guardada para redirigir
-        const redirectUrl = localStorage.getItem("redirectAfterLogin");
+        const params = new URLSearchParams(window.location.search);
+        const queryRedirect = params.get("redirect");
+        const storedRedirect = localStorage.getItem("redirectAfterLogin");
+        const redirectUrl = isSafeRedirect(queryRedirect)
+          ? queryRedirect
+          : isSafeRedirect(storedRedirect)
+            ? storedRedirect
+            : data.redirect;
 
-        // Redirigir a la página guardada o a la página por defecto
         setTimeout(() => {
-          if (redirectUrl) {
-            localStorage.removeItem("redirectAfterLogin"); // Limpiar después de usar
-            window.location.href = redirectUrl;
-          } else {
-            window.location.href = data.redirect;
-          }
+          localStorage.removeItem("redirectAfterLogin");
+          window.location.href = redirectUrl;
         }, 1000);
       } else {
         messageContainer.style.background = "#f8d7da";

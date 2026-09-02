@@ -1,19 +1,9 @@
 <?php
-// Mostrar errores para debugging (quitar en producción)
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 error_reporting(E_ALL);
 
-// Cabeceras CORS
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
-
-// Manejar preflight OPTIONS
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit;
-}
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Método no permitido']);
@@ -86,10 +76,22 @@ try {
     ]);
 } catch (Exception $e) {
     error_log("TrabajaConNosotros Error: " . $e->getMessage());
+    $mensajes_publicos = [
+        'Todos los campos son obligatorios',
+        'Email inválido',
+        'El CV es obligatorio',
+        'Solo se permiten archivos PDF o Word (.pdf, .doc, .docx)',
+        'El archivo es demasiado grande. Máximo 2MB',
+        'Error al guardar el CV',
+        'Error al enviar el correo. Intente luego.',
+    ];
+    $mensaje = in_array($e->getMessage(), $mensajes_publicos, true)
+        ? $e->getMessage()
+        : 'No se pudo enviar la solicitud. Intente nuevamente.';
     http_response_code(400);
     echo json_encode([
         'success' => false,
-        'message' => $e->getMessage()
+        'message' => $mensaje
     ]);
 }
 ?>

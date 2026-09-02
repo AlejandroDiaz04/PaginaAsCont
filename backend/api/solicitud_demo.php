@@ -4,22 +4,12 @@
  * Recibe datos del formulario y envía correo al administrador
  */
 
-// Mostrar errores para debugging (quitar en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+ini_set('log_errors', 1);
 error_reporting(E_ALL);
 
-// Cabeceras CORS
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
-
-// Manejar preflight OPTIONS
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit;
-}
 
 // Solo permitir método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -33,10 +23,10 @@ try {
     require_once '../config/Mailer.php';
 } catch (Exception $e) {
     http_response_code(500);
+    error_log('Error de configuración en solicitud_demo.php');
     echo json_encode([
-        'success' => false, 
-        'message' => 'Error de configuración del servidor',
-        'error' => $e->getMessage()
+        'success' => false,
+        'message' => 'Error de configuración del servidor'
     ]);
     exit;
 }
@@ -93,12 +83,17 @@ try {
     
 } catch (Exception $e) {
     error_log("Error en solicitud_demo.php: " . $e->getMessage());
+    $mensajes_publicos = [
+        'Todos los campos son obligatorios',
+        'Email inválido',
+    ];
+    $mensaje = in_array($e->getMessage(), $mensajes_publicos, true)
+        ? $e->getMessage()
+        : 'No se pudo enviar la solicitud. Intente nuevamente.';
     http_response_code(400);
     echo json_encode([
         'success' => false,
-        'message' => $e->getMessage(),
-        'file' => $e->getFile(),
-        'line' => $e->getLine()
+        'message' => $mensaje
     ]);
 }
 ?>

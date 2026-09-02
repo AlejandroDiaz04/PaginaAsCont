@@ -11,8 +11,8 @@ require_once '../config/Mailer.php';
 // Obtener token de la URL
 $token = isset($_GET['token']) ? trim($_GET['token']) : '';
 
-if (empty($token)) {
-    mostrarError('Token de activación no proporcionado');
+if ($token === '' || !preg_match('/^[a-f0-9]{64}$/', $token)) {
+    mostrarError('Token de activación no proporcionado o inválido');
     exit;
 }
 

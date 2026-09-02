@@ -1,0 +1,40 @@
+# Dependencias
+node_modules/
+
+# Entorno y secretos
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/config/config.php
+
+# Logs
+*.log
+error_log
+backend/api/error_log
+backend/api/registro_debug.log
+
+# Archivos subidos por usuarios
+backend/uploads/cv/*
+!backend/uploads/cv/.gitkeep
+!backend/uploads/cv/.htaccess
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporales y backups
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.backup

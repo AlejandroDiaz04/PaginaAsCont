@@ -1,0 +1,9 @@
+# Impedir acceso HTTP directo a CVs almacenados.
+# Los archivos permanecen en disco; no hay endpoint de descarga pública.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

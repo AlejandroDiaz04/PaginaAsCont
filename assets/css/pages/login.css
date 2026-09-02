@@ -244,6 +244,33 @@ footer i {
   color: red;
 }
 
+.privacy-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.privacy-consent input {
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.privacy-consent span,
+.privacy-consent a {
+  margin: 0;
+  font-size: 11px;
+}
+
+.privacy-consent a {
+  color: #0a84ff;
+  text-decoration: underline;
+}
+
 footer a {
   color: #3c97bf;
   text-decoration: none;

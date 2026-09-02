@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AsContSystem</title>
-    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/HTML/CSS-HTML/contenido_exclusivo.css" />
+    <link rel="stylesheet" href="/assets/css/pages/contenido_exclusivo.css" />
   </head>
 
   <body class="premium-page">
@@ -36,7 +36,7 @@
     <header class="navbar-local">
       <div class="logo-container">
         <img
-          src="/IMG/LogoNaranjaPng.png"
+          src="/assets/images/LogoNaranjaPng.png"
           alt="AsContSystem Logo"
           class="logo"
         />
@@ -118,7 +118,7 @@
                       disablePictureInPicture
                       oncontextmenu="return false;"
                     >
-                      <source src="/IMG/presentacion1.mp4" type="video/mp4" />
+                      <source src="/backend/api/video_presentacion.php" type="video/mp4" />
                       Tu navegador no soporta el elemento de video.
                     </video>
                   </div>
@@ -165,18 +165,11 @@
 
             <div class="video-grid">
               <div class="video-card">
-                <div class="video-container" oncontextmenu="return false;">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/videoseries?si=zK-ckLaxoeuS2uKm&amp;list=PLUouKNeLdNGfOuqlEUP9PNh04aaX114Lb"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+                <div
+                  class="video-container"
+                  data-video-id="tutorial_contabilidad"
+                  oncontextmenu="return false;"
+                ></div>
                 <div class="video-info">
                   <h3>Contabilidad</h3>
                   <p>Contabilidad integrada.</p>
@@ -184,18 +177,11 @@
               </div>
 
               <div class="video-card">
-                <div class="video-container" oncontextmenu="return false;">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/videoseries?si=oyn7KLw39io-JbOd&amp;list=PLUouKNeLdNGdTFwkYEyNTO96vyuzfbcdN"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+                <div
+                  class="video-container"
+                  data-video-id="tutorial_transacciones"
+                  oncontextmenu="return false;"
+                ></div>
                 <div class="video-info">
                   <h3>Transacciones</h3>
                   <p>Control y gestión de transacciones financieras.</p>
@@ -203,18 +189,11 @@
               </div>
 
               <div class="video-card">
-                <div class="video-container" oncontextmenu="return false;">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/videoseries?si=VnLj19eFHXovLeHj&amp;list=PLUouKNeLdNGezM6tzC3ulF4PYGB7msd6N"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+                <div
+                  class="video-container"
+                  data-video-id="tutorial_configuraciones"
+                  oncontextmenu="return false;"
+                ></div>
                 <div class="video-info">
                   <h3>Configuraciones</h3>
                   <p>Configuraciones del sistema.</p>
@@ -267,10 +246,10 @@
     </footer>
 
     <!-- Script de protección debe ir primero -->
-    <script src="/JS/auth.js"></script>
-    <script src="/JS/proteccion.js"></script>
-    <script src="/HTML/JS-HTML/video_protection.js"></script>
-    <script src="/JS/scrips.js"></script>
-    <script src="/HTML/JS-HTML/contenido_exclusivo.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/proteccion.js"></script>
+    <script src="/assets/js/pages/video_protection.js"></script>
+    <script src="/assets/js/scrips.js"></script>
+    <script src="/assets/js/pages/contenido_exclusivo.js"></script>
   </body>
 </html>

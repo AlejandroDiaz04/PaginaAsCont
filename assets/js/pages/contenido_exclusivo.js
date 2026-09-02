@@ -37,7 +37,60 @@ links.forEach((link) => {
 });
 
 // Detectar parámetro de sección en la URL al cargar la página
+async function cargarVideosYoutube() {
+  const containers = document.querySelectorAll(".video-container[data-video-id]");
+  if (!containers.length) {
+    return;
+  }
+
+  const API_BASE_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+      ? "http://localhost:8000"
+      : "";
+
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}/backend/api/video_proxy.php`,
+      { credentials: "include" }
+    );
+
+    if (!response.ok) {
+      return;
+    }
+
+    const data = await response.json();
+    if (!data.success || !data.videos) {
+      return;
+    }
+
+    containers.forEach((el) => {
+      const id = el.getAttribute("data-video-id");
+      const url = data.videos[id];
+      if (!url) {
+        return;
+      }
+
+      const iframe = document.createElement("iframe");
+      iframe.width = "560";
+      iframe.height = "315";
+      iframe.src = url;
+      iframe.title = "YouTube video player";
+      iframe.setAttribute("frameborder", "0");
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      el.appendChild(iframe);
+    });
+  } catch (e) {
+    return;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  cargarVideosYoutube();
+
   const urlParams = new URLSearchParams(window.location.search);
   const section = urlParams.get("section");
 

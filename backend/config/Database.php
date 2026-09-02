@@ -32,7 +32,7 @@ class Database {
             
         } catch (PDOException $e) {
             error_log("Error de conexión: " . $e->getMessage());
-            die("Error al conectar con la base de datos");
+            throw new Exception('Error al conectar con la base de datos');
         }
     }
     

@@ -188,7 +188,7 @@ main.premium-contenedor {
 } */
 
 .videos {
-  /* background-image: url(/IMG/fondo_exclusivo.jpg);
+  /* background-image: url(/assets/images/fondo_exclusivo.jpg);
   background-size: cover;
   background-position: center; */
   background: rgb(0, 0, 0);
@@ -544,7 +544,7 @@ footer p {
 }
 
 .inicio-contenido {
-  /* background-image: url(/IMG/edificio.jpg);
+  /* background-image: url(/assets/images/edificio.jpg);
   background-size: cover;
   background-position: center; */
   position: relative;
@@ -827,7 +827,7 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(/IMG/card2.jpg);
+  background-image: url(/assets/images/card2.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -841,7 +841,7 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(/IMG/card2.jpeg);
+  background-image: url(/assets/images/card2.jpeg);
   background-size: cover;
   background-position: center;
 }

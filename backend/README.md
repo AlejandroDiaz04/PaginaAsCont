@@ -25,7 +25,7 @@ Sistema backend completo para gestión de formularios y autenticación de usuari
 Ejecuta el script SQL para crear las tablas:
 
 ```bash
-psql -U postgres -d pagina_web -f backend/database/schema.sql
+psql -U postgres -d pagina_web -f database/schema.sql
 ```
 
 O desde pgAdmin:
@@ -33,7 +33,7 @@ O desde pgAdmin:
 1. Abre pgAdmin
 2. Conecta al servidor PostgreSQL
 3. Selecciona la base de datos `pagina_web`
-4. Ejecuta el contenido de `backend/database/schema.sql`
+4. Ejecuta el contenido de `database/schema.sql`
 
 ### 2. Configurar el Backend
 
@@ -44,9 +44,9 @@ Edita el archivo `backend/config/config.php` y configura:
 ```php
 define('DB_HOST', 'localhost');
 define('DB_PORT', '5432');
-define('DB_NAME', 'pagina_web');
-define('DB_USER', 'postgres');
-define('DB_PASS', 'assoftware');
+define('DB_NAME', 'nombre_base_de_datos');
+define('DB_USER', 'usuario_db');
+define('DB_PASS', 'cambiar_esta_contraseña');
 ```
 
 #### Configuración de Correo:
@@ -137,22 +137,24 @@ define('SITE_URL', 'https://tu-dominio.com');
 ```
 backend/
 ├── api/
-│   ├── activar_cuenta.php      # Activación de cuentas
-│   ├── check_session.php       # Verificar sesión activa
-│   ├── login.php               # Inicio de sesión
-│   ├── logout.php              # Cerrar sesión
-│   ├── registro.php            # Registro de usuarios
-│   ├── solicitud_demo.php      # Solicitud de demo
-│   └── trabaja_con_nosotros.php # Solicitud de empleo
+│   ├── activar_cuenta.php
+│   ├── check_session.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── registro.php
+│   ├── solicitud_demo.php
+│   └── trabaja_con_nosotros.php
 ├── config/
-│   ├── config.php              # Configuración general
-│   ├── Database.php            # Clase de conexión DB
-│   └── Mailer.php              # Clase de envío de correos
-├── database/
-│   └── schema.sql              # Estructura de base de datos
+│   ├── config.example.php
+│   ├── config.php              # No versionar; crear desde el example
+│   ├── Database.php
+│   └── Mailer.php
+├── lib/                        # PHPMailer
 └── uploads/
-    └── cv/                     # CVs subidos
+    └── cv/
 ```
+
+El esquema SQL está en `database/schema.sql` (raíz del proyecto).
 
 ## 🔐 Flujo de Autenticación
 

@@ -3,7 +3,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   position: relative;
-  background-image: url("/IMG/fondoDemo.png");
+  background-image: url("/assets/images/fondoDemo.png");
   background-size: cover;
   background-position: center top;
   font-family: "Montserrat", sans-serif;
@@ -94,6 +94,24 @@ button {
 
 button:hover {
   background: #0056b3;
+}
+
+.privacy-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.privacy-consent input {
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.privacy-consent a {
+  color: #7ec8ff;
 }
 
 @media (max-width: 480px) {

@@ -1,0 +1,15 @@
+# Reescritura de URL (raíz del sitio = document root)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Opción A: la URL pública /HTML/contenido_exclusivo.html no cambia.
+    # Apache intercepta la petición y la reescribe INTERNAMENTE a PHP
+    # ANTES de servir el archivo estático.
+    # Sin sesión válida, contenido_exclusivo.php responde 302 a /HTML/login.html.
+    # Con sesión válida, PHP sirve el HTML con readfile() (un solo archivo, sin copia).
+    RewriteRule ^HTML/contenido_exclusivo\.html$ /backend/api/contenido_exclusivo.php [L]
+
+    # El MP4 permanece en disco pero no es accesible por HTTP directo.
+    # El video se sirve solo mediante /backend/api/video_presentacion.php
+    RewriteRule ^assets/images/presentacion1\.mp4$ - [F,L]
+</IfModule>
