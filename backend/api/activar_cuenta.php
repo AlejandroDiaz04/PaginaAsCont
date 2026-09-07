@@ -234,7 +234,7 @@ function mostrarExito($mensaje, $nombre) {
             <p>¡Hola <span class="highlight"><?php echo htmlspecialchars($nombre); ?></span>!</p>
             <p>Tu cuenta ha sido activada exitosamente. Ya puedes iniciar sesión y acceder al contenido exclusivo.</p>
             <p>Se ha enviado un correo de confirmación a tu dirección de email.</p>
-            <a href="<?php echo SITE_URL; ?>/HTML/login.html" class="button">Iniciar Sesión</a>
+            <a href="<?php echo SITE_URL; ?>/login" class="button">Iniciar Sesión</a>
             <a href="<?php echo SITE_URL; ?>" class="button secondary">Ir al Inicio</a>
         </div>
     </body>

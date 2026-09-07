@@ -59,6 +59,7 @@ Tu sistema debe configurarse en `backend/config/config.php` (no versionado):
 - **SMTP Host:** el de tu hosting o proveedor
 - **Puerto:** 587 (TLS) o el que indique el proveedor
 - **Email / Destinatario:** los definidos en `MAIL_FROM` y `MAIL_ADMIN`
+- **MAIL_SSL_VERIFY:** `true` en producción (verifica el certificado SMTP). `false` solo en desarrollo local si faltan CAs.
 
 ## Notas Importantes
 

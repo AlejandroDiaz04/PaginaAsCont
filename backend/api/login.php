@@ -7,6 +7,7 @@
 require_once '../config/config.php';
 require_once '../config/session.php';
 require_once '../config/Database.php';
+require_once '../lib/RateLimit.php';
 
 ascont_session_start();
 
@@ -16,6 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Método no permitido']);
     exit;
+}
+
+if (!RateLimit::attempt('login', 10, 900)) {
+    RateLimit::rejectJson();
 }
 
 $mensajes_publicos = [
@@ -77,7 +82,7 @@ try {
             'nombre' => $user['nombre'],
             'email' => $user['email']
         ],
-        'redirect' => SITE_URL . '/index.html'
+        'redirect' => SITE_URL . '/'
     ]);
 
 } catch (Exception $e) {

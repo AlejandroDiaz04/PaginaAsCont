@@ -26,7 +26,9 @@ define('MAIL_FROM', 'administradorweb@ascont.com.py');
 define('MAIL_FROM_NAME', 'AsContSystem');
 
 // Correo admin donde se recibirán las notificaciones
-define('MAIL_ADMIN', 'alejandrodiaz04zr@gmail.com'); 
+define('MAIL_ADMIN', 'alejandrodiaz04zr@gmail.com');
+// true = verificar certificado SSL SMTP (producción). false solo en desarrollo local.
+define('MAIL_SSL_VERIFY', true);
 
 // Configuración del sitio
 define('SITE_URL', 'https://ascont.com.py'); // URL base de tu sitio

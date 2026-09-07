@@ -209,27 +209,26 @@ define('MAIL_ENCRYPTION', 'tls');
 
 ### Probar Formulario de Demo:
 
-1. Ir a `/HTML/demo.html`
+1. Ir a `/demo`
 2. Completar formulario
 3. Verificar que llegue el correo a `MAIL_ADMIN`
 
 ### Probar Trabaja con Nosotros:
 
-1. Ir a `/HTML/empresa.html#trabajaConNosotros`
+1. Ir a `/empresa` (sección trabaja con nosotros)
 2. Completar formulario y adjuntar CV
 3. Verificar correo en `MAIL_ADMIN`
 4. Verificar que el CV se guardó en `backend/uploads/cv/`
 
 ### Probar Registro y Login:
 
-1. Ir a `/HTML/login.html`
-2. Hacer clic en "Sign Up"
-3. Completar formulario de registro
-4. Verificar correo de activación en `MAIL_ADMIN`
-5. Hacer clic en el link de activación
-6. Usuario recibirá correo de confirmación
-7. Iniciar sesión con las credenciales
-8. Debe redirigir a `/HTML/contenido_exclusivo.html`
+1. Ir a `/login`
+2. Completar registro
+3. Verificar correo de activación en `MAIL_ADMIN`
+4. Hacer clic en el link de activación
+5. Usuario recibirá correo de confirmación
+6. Iniciar sesión con las credenciales
+7. Acceder a `/contenido-exclusivo`
 
 ## ⚠️ Solución de Problemas
 
@@ -272,7 +271,8 @@ define('MAIL_ENCRYPTION', 'tls');
 - Cambiar `error_reporting` a 0
 - Usar HTTPS
 - Configurar CORS adecuadamente
-- Implementar rate limiting
+- Rate limiting activo en login/registro/demo/trabaja (`backend/lib/RateLimit.php`)
+- `MAIL_SSL_VERIFY` en `true` (producción)
 - Usar variables de entorno para credenciales sensibles
 
 ## 📞 Soporte

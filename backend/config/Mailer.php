@@ -12,6 +12,23 @@ require_once __DIR__ . '/../lib/Exception.php';
 require_once __DIR__ . '/../lib/SMTP.php';
 
 class Mailer {
+
+    /**
+     * Aplica opciones SSL según MAIL_SSL_VERIFY (false solo en desarrollo local).
+     */
+    private static function applySmtpSslOptions(PHPMailer $mail) {
+        $verify = !defined('MAIL_SSL_VERIFY') || MAIL_SSL_VERIFY;
+        if ($verify) {
+            return;
+        }
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true,
+            ],
+        ];
+    }
     
     /**
      * Envía un correo electrónico usando PHPMailer
@@ -39,15 +56,8 @@ class Mailer {
             $mail->SMTPSecure = MAIL_ENCRYPTION;
             $mail->Port       = MAIL_PORT;
             $mail->CharSet    = 'UTF-8';
-            
-            // Desactivar verificación SSL en desarrollo (eliminar en producción)
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
+
+            self::applySmtpSslOptions($mail);
             
             // Destinatarios
             $mail->setFrom($from, MAIL_FROM_NAME);
@@ -96,15 +106,8 @@ class Mailer {
             $mail->SMTPSecure = MAIL_ENCRYPTION;
             $mail->Port       = MAIL_PORT;
             $mail->CharSet    = 'UTF-8';
-            
-            // Desactivar verificación SSL en desarrollo
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
+
+            self::applySmtpSslOptions($mail);
             
             // Destinatarios
             $mail->setFrom($from, MAIL_FROM_NAME);
@@ -259,7 +262,7 @@ class Mailer {
      * Plantilla HTML para confirmar activación de cuenta (USUARIO)
      */
     public static function templateCuentaActivada($nombre) {
-        $loginUrl = SITE_URL . '/HTML/login.html';
+        $loginUrl = SITE_URL . '/login';
         
         return '
         <!DOCTYPE html>

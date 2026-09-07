@@ -1,0 +1,173 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 5px clamp(16px, 3vw, 40px);
+  z-index: 100;
+  background-color: rgba(13, 73, 238, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.navHidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  height: 65px;
+  display: block;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 102;
+  padding: 8px;
+}
+
+.line {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburgerOpen .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburgerOpen .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: clamp(1rem, 2.2vw, 3.125rem);
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  font-weight: 300;
+  font-size: large;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ff7a00;
+}
+
+.loginLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.loginBtn {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userName {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  border-color: #ff7a00;
+  color: #ff7a00;
+}
+
+.navLoginItem {
+  display: none;
+}
+
+.navLoginItem button.loginLink {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 950px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(13, 73, 238, 0.98);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    gap: 1.5rem;
+  }
+
+  .menuOpen {
+    transform: translateX(0);
+  }
+
+  .loginDesktop {
+    display: none;
+  }
+
+  .navLoginItem {
+    display: list-item;
+  }
+}

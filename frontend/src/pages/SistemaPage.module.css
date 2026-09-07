@@ -1,0 +1,336 @@
+.page {
+  width: 100%;
+}
+
+.hero {
+  background: linear-gradient(135deg, #002a55 0%, #003d7a 100%);
+  color: #fff;
+  width: 100%;
+  padding: 100px 40px;
+  text-align: center;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin: 0 0 40px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.presentacion {
+  width: 100%;
+  background: #fff;
+  padding: 80px 40px;
+}
+
+.sistemaContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.mockup img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.info h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: #002a55;
+  font-weight: 700;
+  margin: 0 0 15px;
+}
+
+.linea {
+  width: 60px;
+  height: 4px;
+  background: #ff7a00;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #ff7a00;
+  font-weight: 600;
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.descripcion {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 30px;
+}
+
+.checkList {
+  list-style: none;
+  margin: 0 0 35px;
+  padding: 0;
+}
+
+.checkList li {
+  font-size: 15px;
+  color: #333;
+  padding: 12px 0 12px 30px;
+  position: relative;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+}
+
+.checkList li:last-child {
+  border-bottom: none;
+}
+
+.checkList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff7a00;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.botones {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.caracteristicas,
+.modulos {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 80px 40px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: #002a55;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 15px;
+}
+
+.sectionLinea {
+  width: 80px;
+  height: 4px;
+  background: #ff7a00;
+  margin: 0 auto 50px;
+  border-radius: 2px;
+}
+
+.caracteristicasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.caracteristicaCard {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 42, 85, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.caracteristicaCard:hover {
+  transform: translateY(-8px);
+  border-left-color: #ff7a00;
+}
+
+.caracteristicaCard h3 {
+  font-size: 18px;
+  color: #002a55;
+  margin: 0 0 12px;
+}
+
+.caracteristicaCard p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modulosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.moduloCard {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  border-top: 3px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.moduloCard:hover {
+  border-top-color: #ff7a00;
+  transform: translateY(-5px);
+}
+
+.moduloCard h4 {
+  font-size: 16px;
+  color: #002a55;
+  margin: 0 0 10px;
+}
+
+.moduloCard p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.funcionalidades {
+  background: #fff;
+  padding: 80px 40px;
+}
+
+.funcionalidadItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.funcionalidadReverse {
+  direction: rtl;
+}
+
+.funcionalidadReverse > * {
+  direction: ltr;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+.videoContainer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.funcionalidadInfo h3 {
+  font-size: 28px;
+  color: #002a55;
+  font-weight: 700;
+  margin: 0 0 15px;
+}
+
+.funcionalidadInfo p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+
+.funcionalidadLista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.funcionalidadLista li {
+  font-size: 14px;
+  color: #333;
+  padding: 10px 0 10px 25px;
+  position: relative;
+  font-weight: 500;
+}
+
+.funcionalidadLista li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #ff7a00;
+  font-weight: bold;
+}
+
+.cta {
+  width: 100%;
+  background: linear-gradient(135deg, #002a55 0%, #003d7a 100%);
+  color: #fff;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin: 0 0 20px;
+}
+
+.cta p {
+  font-size: 18px;
+  margin: 0 0 40px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1024px) {
+  .sistemaContainer,
+  .funcionalidadItem {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .funcionalidadReverse {
+    direction: ltr;
+  }
+
+  .presentacion,
+  .caracteristicas,
+  .modulos,
+  .funcionalidades,
+  .cta,
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

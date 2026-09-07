@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require_once '../config/config.php';
 require_once '../config/Mailer.php';
+require_once '../lib/RateLimit.php';
+
+if (!RateLimit::attempt('trabaja', 5, 3600)) {
+    RateLimit::rejectJson();
+}
 
 try {
     // Validar campos requeridos

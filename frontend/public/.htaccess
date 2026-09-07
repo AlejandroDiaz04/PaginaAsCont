@@ -1,0 +1,19 @@
+# Conservar APIs PHP y fallback SPA (incluido en dist/)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^assets/images/presentacion1\.mp4$ - [F,L]
+    RewriteRule ^backend/ - [L]
+
+    RewriteRule ^HTML/sistema\.html$ /sistema [R=301,L]
+    RewriteRule ^HTML/aplicacion\.html$ /aplicacion [R=301,L]
+    RewriteRule ^HTML/empresa\.html$ /empresa [R=301,L]
+    RewriteRule ^HTML/login\.html$ /login [R=301,L]
+    RewriteRule ^HTML/demo\.html$ /demo [R=301,L]
+    RewriteRule ^HTML/contenido_exclusivo\.html$ /contenido-exclusivo [R=301,L]
+    RewriteRule ^HTML/politica-de-privacidad\.html$ /privacidad [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>

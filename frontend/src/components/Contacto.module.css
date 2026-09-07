@@ -1,0 +1,186 @@
+.section {
+  border-top: 1px solid #000;
+  width: 100%;
+  background: #fff;
+  margin-top: 80px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 30px 40px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.col {
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  align-items: flex-start;
+}
+
+.info hr {
+  border: 0;
+  height: 2px;
+  background: #000;
+  width: 100%;
+  margin: 10px 0 18px;
+}
+
+.info p {
+  font-size: 18px;
+  color: #000;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mail {
+  font-weight: 600;
+  color: #000;
+  font-size: 18px;
+  margin-top: 18px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.mail:hover {
+  color: #0a84ff;
+}
+
+.mapaWrapper {
+  width: 350px;
+  max-width: 95vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.mapaWrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.direccion {
+  color: #666;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.ubicacion {
+  color: #0a84ff;
+  margin-right: 4px;
+}
+
+.lateral {
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.phoneIcon {
+  font-size: 36px;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.phones {
+  color: #000;
+  font-size: 1.06em;
+  line-height: 1.5;
+}
+
+.phones span {
+  font-weight: 600;
+}
+
+.redes {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+}
+
+.redes a {
+  font-size: 25px;
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.redes a:hover {
+  color: #0a84ff;
+}
+
+.compania p {
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+  margin: 0 0 8px;
+}
+
+.compania a {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.compania a:hover {
+  color: #0a84ff;
+  text-decoration: underline;
+}
+
+.derechos {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 16px 0 0;
+  padding: 8px 16px 24px;
+}
+
+@media (max-width: 950px) {
+  .section {
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+  }
+
+  .grid {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 40px 4vw 30px;
+  }
+
+  .col,
+  .info,
+  .lateral {
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .mail {
+    text-align: center;
+  }
+}

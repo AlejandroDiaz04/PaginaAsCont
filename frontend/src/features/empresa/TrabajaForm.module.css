@@ -1,0 +1,187 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 420px;
+}
+
+.form h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #000000c2;
+  text-align: left;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border: 1.5px solid #000000;
+  border-radius: 0.5rem;
+  background: #f8fbfc;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border: 1.5px solid #0059ff;
+  box-shadow: 0 0 0 2px #bbecff5c;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 90px;
+  max-height: 220px;
+}
+
+.adjuntoLabel {
+  background: hsla(229, 100%, 50%, 0.856);
+  border: 1.3px solid #b2eff7;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+
+.adjuntoLabel input[type="file"] {
+  display: none;
+}
+
+.adjuntoLabel:hover {
+  border: 1.5px solid #fcb64e;
+  background: #ff8513;
+}
+
+.cvPreview {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.cvFileSize {
+  color: #666;
+  margin-left: 10px;
+}
+
+.removeCv {
+  float: right;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.removeCv:hover {
+  filter: brightness(0.92);
+}
+
+.privacyConsent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #333;
+  cursor: pointer;
+}
+
+.privacyConsent input {
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+
+.privacyConsent a {
+  color: #0059ff;
+}
+
+.message {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.ok {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.submit {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 700;
+  background: #0059ff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.19s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 4px 18px #b4e2fb38;
+  letter-spacing: 0.5px;
+}
+
+.submit:hover:not(:disabled) {
+  filter: brightness(1.08);
+  background: #ff8513;
+  box-shadow: 0 6px 26px #00000098;
+  transform: translateY(-2px);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+@media (max-width: 768px) {
+  .form input,
+  .form textarea {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form h1 {
+    font-size: 1.3rem;
+  }
+
+  .form input,
+  .form textarea,
+  .adjuntoLabel {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form {
+    width: 100%;
+    max-width: none;
+  }
+}

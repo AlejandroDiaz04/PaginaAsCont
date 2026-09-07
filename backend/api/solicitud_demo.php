@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 try {
     require_once '../config/config.php';
     require_once '../config/Mailer.php';
+    require_once '../lib/RateLimit.php';
 } catch (Exception $e) {
     http_response_code(500);
     error_log('Error de configuración en solicitud_demo.php');
@@ -29,6 +30,10 @@ try {
         'message' => 'Error de configuración del servidor'
     ]);
     exit;
+}
+
+if (!RateLimit::attempt('demo', 5, 3600)) {
+    RateLimit::rejectJson();
 }
 
 try {

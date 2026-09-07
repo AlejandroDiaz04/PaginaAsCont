@@ -23,7 +23,7 @@ try {
     echo json_encode([
         'success' => true,
         'message' => 'Sesión cerrada exitosamente',
-        'redirect' => SITE_URL . '/HTML/login.html'
+        'redirect' => SITE_URL . '/login'
     ]);
 
 } catch (Exception $e) {

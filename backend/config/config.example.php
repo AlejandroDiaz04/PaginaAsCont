@@ -21,6 +21,8 @@ define('MAIL_PASSWORD', 'cambiar_esta_contraseña');
 define('MAIL_FROM', 'correo@tudominio.com');
 define('MAIL_FROM_NAME', 'AsContSystem');
 define('MAIL_ADMIN', 'admin@tudominio.com');
+// true = verificar certificado SSL del SMTP (producción). false solo en desarrollo local.
+define('MAIL_SSL_VERIFY', true);
 
 // Sitio
 define('SITE_URL', 'https://tudominio.com');

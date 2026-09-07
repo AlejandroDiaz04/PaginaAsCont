@@ -1,0 +1,14 @@
+.typeTarget {
+  white-space: pre-wrap;
+  display: inline;
+}
+
+.cursor {
+  border-right: 0.12em solid rgba(255, 255, 255, 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    border-right: none;
+  }
+}

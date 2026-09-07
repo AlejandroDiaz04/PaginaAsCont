@@ -1,12 +1,19 @@
 # Dependencias
 node_modules/
+frontend/node_modules/
 
 # Entorno y secretos
 .env
 .env.local
 .env.*.local
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
 backend/.env
 backend/config/config.php
+
+# Build frontend (Vite)
+frontend/dist/
 
 # Logs
 *.log
@@ -18,6 +25,11 @@ backend/api/registro_debug.log
 backend/uploads/cv/*
 !backend/uploads/cv/.gitkeep
 !backend/uploads/cv/.htaccess
+
+# Rate limit counters
+backend/storage/rate_limit/*
+!backend/storage/rate_limit/.gitkeep
+!backend/storage/rate_limit/.htaccess
 
 # Sistema operativo
 .DS_Store
